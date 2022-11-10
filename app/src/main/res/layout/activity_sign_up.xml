@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".SignUpActivity">
+
+    <RelativeLayout
+        android:padding="16dp"
+        android:id="@+id/layoutSub"
+        android:background="@drawable/custom_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textViewSignUpTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="8dp"
+            android:text="@string/sign_up"
+            android:textColor="@color/neutral1"
+            android:textSize="35sp" />
+
+        <EditText
+            android:id="@+id/ediUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewSignUpTitle"
+            android:layout_marginTop="12dp"
+            android:autofillHints="username"
+            android:background="@drawable/custom_edi"
+            android:drawableStart="@drawable/user"
+            android:drawablePadding="8dp"
+            android:hint="@string/username"
+            android:textColorHint="@color/neutral3"
+            android:inputType="text"
+            android:padding="16dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/ediPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ediUsername"
+            android:layout_marginTop="20dp"
+            android:autofillHints="password"
+            android:background="@drawable/custom_edi"
+            android:textColorHint="@color/neutral3"
+            android:drawableStart="@drawable/key"
+            android:drawablePadding="8dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:letterSpacing="0.0"
+            android:padding="16dp"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/butSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/ediPassword"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button"
+            android:gravity="center"
+            android:text="@string/sign_up"
+            android:textAllCaps="true"
+            android:textColor="@color/neutral6"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
