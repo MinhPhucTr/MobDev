@@ -1,4 +1,4 @@
-package vn.uit.project.Model;
+package vn.uit.project.APIComponent;
 
 import java.io.IOException;
 import java.security.cert.CertificateException;

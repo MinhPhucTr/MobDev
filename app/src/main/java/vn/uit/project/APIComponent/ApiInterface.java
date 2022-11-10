@@ -1,4 +1,4 @@
-package vn.uit.project.Model;
+package vn.uit.project.APIComponent;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
