@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="activity_horizontal_marginx2">16dp</dimen>
-    <dimen name="activity_horizontal_margin">8dp</dimen>
-    <dimen name="margin_top">12dp</dimen>
-    <dimen name="margin_topx2">20dp</dimen>
-    <dimen name="margin_base">5dp</dimen>
-    <dimen name="margin_basex2">10dp</dimen>
-    <dimen name="tex_title">35sp</dimen>
-    <dimen name="tex2">16sp</dimen>
-    <dimen name="tex">14sp</dimen>
-    <dimen name="margin_tex_newuser">110dp</dimen>
-
+    <dimen name="dp16">16dp</dimen>
+    <dimen name="dp8">8dp</dimen>
+    <dimen name="dp12">12dp</dimen>
+    <dimen name="dp20">20dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="sp35">35sp</dimen>
+    <dimen name="sp16">16sp</dimen>
+    <dimen name="sp14">14sp</dimen>
+    <dimen name="dp110">110dp</dimen>
+    <dimen name="sp20">20sp</dimen>
+    <dimen name="sp24">24sp</dimen>
+    <dimen name="dp2">2dp</dimen>
+    <dimen name="dp4">4dp</dimen>
 </resources>

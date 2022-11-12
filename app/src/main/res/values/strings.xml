@@ -9,4 +9,11 @@
     <string name="sign_up">Sign up</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="device_added">Device Added</string>
+    <string name="numberic">8</string>
+    <string name="appliances_list">Appliances list</string>
+    <string name="temp">Temp</string>
+    <string name="air">Air</string>
+    <string name="humidity">Humidity</string>
 </resources>

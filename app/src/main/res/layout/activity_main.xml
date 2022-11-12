@@ -5,21 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:padding="@dimen/margin_basex2"
     tools:context=".MainActivity">
 
     <RelativeLayout
-        android:padding="@dimen/activity_horizontal_marginx2"
+        android:padding="@dimen/dp16"
         android:id="@+id/layoutSub"
         android:background="@drawable/custom_layout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="@dimen/margin_basex2"
-        android:layout_marginBottom="@dimen/margin_basex2"
-        android:layout_marginStart="@dimen/margin_basex2"
-        android:layout_marginEnd="@dimen/margin_basex2"
+        android:layout_margin="@dimen/dp16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -28,56 +24,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:paddingBottom="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/dp10"
             android:text="@string/login"
             android:textColor="@color/neutral1"
-            android:textSize="@dimen/tex_title" />
+            android:textSize="@dimen/sp35" />
 
         <EditText
             android:id="@+id/ediUsernameMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textViewLogin"
-            android:layout_marginTop="@dimen/margin_top"
+            android:layout_marginTop="@dimen/dp12"
             android:autofillHints="username"
             android:background="@drawable/custom_edi"
             android:drawableStart="@drawable/user"
-            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:drawablePadding="@dimen/dp8"
             android:hint="@string/username"
             android:textColorHint="@color/neutral3"
             android:inputType="text"
-            android:padding="@dimen/activity_horizontal_marginx2"
-            android:textSize="@dimen/tex2" />
+            android:padding="@dimen/dp16"
+            android:textSize="@dimen/sp16" />
 
         <EditText
             android:id="@+id/ediPasswordMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ediUsernameMain"
-            android:layout_marginTop="@dimen/margin_topx2"
+            android:layout_marginTop="@dimen/dp20"
             android:autofillHints="password"
             android:background="@drawable/custom_edi"
             android:textColorHint="@color/neutral3"
             android:drawableStart="@drawable/key"
-            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:drawablePadding="@dimen/dp8"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:letterSpacing="0.0"
-            android:padding="@dimen/activity_horizontal_marginx2"
-            android:textSize="@dimen/tex2" />
+            android:padding="@dimen/dp16"
+            android:textSize="@dimen/dp16" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/butLogInMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ediPasswordMain"
-            android:layout_marginTop="@dimen/margin_topx2"
+            android:layout_marginTop="@dimen/dp20"
             android:background="@drawable/custom_button"
             android:gravity="center"
             android:text="@string/log_in"
             android:textAllCaps="true"
             android:textColor="@color/neutral6"
-            android:textSize="@dimen/tex"
+            android:textSize="@dimen/sp14"
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
@@ -85,10 +81,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/butLogInMain"
-            android:layout_marginStart="@dimen/margin_tex_newuser"
-            android:layout_marginTop="@dimen/margin_base"
+            android:layout_marginStart="@dimen/dp110"
+            android:layout_marginTop="@dimen/dp5"
             android:text="@string/new_user"
-            android:textSize="@dimen/tex" />
+            android:textSize="@dimen/sp14" />
 
         <TextView
             android:id="@+id/textViewSignUp"
@@ -96,11 +92,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/butLogInMain"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin_base"
+            android:layout_marginTop="@dimen/dp5"
             android:layout_toEndOf="@id/textViewNewUser"
-            android:paddingStart="@dimen/margin_base"
+            android:paddingStart="@dimen/dp8"
             android:text="@string/sign_up"
             android:textColor="@color/primary"
-            android:textSize="@dimen/tex" />
+            android:textSize="@dimen/sp14" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
