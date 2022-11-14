@@ -18,8 +18,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="@dimen/dp16"
         android:layout_marginTop="@dimen/dp20"
-        android:background="@drawable/menu_button"
-        />
+        android:background="@drawable/menu_button" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/butSearch"
@@ -29,8 +28,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="@dimen/dp20"
         android:layout_marginEnd="@dimen/dp16"
-        android:background="@drawable/search_button"
-        />
+        android:background="@drawable/search_button" />
 
     <TextView
         android:id="@+id/texHome"
@@ -44,114 +42,321 @@
         android:textColor="@color/neutral6"
         android:textSize="@dimen/sp20" />
 
+    <!--    Main board-->
     <RelativeLayout
+        android:id="@+id/MainBoard"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_below="@id/butMenu"
-        android:layout_margin="@dimen/dp16"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp16"
+        android:layout_marginEnd="@dimen/dp16"
+        android:layout_marginBottom="@dimen/dp16"
         android:background="@drawable/main_board"
         android:elevation="1dp"
-        android:translationZ="16dp"
         android:padding="@dimen/dp16"
-        >
+        android:translationZ="16dp">
 
         <TextView
             android:id="@+id/texTotalDevice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/device_added"
-            android:textSize="@dimen/sp20"
-            android:fontFamily="@font/roboto"
-            android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            />
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/roboto"
+            android:text="@string/device_added"
+            android:textSize="@dimen/sp20" />
 
         <TextView
             android:id="@+id/texNumberic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/numberic"
             android:layout_below="@id/texTotalDevice"
-            android:textSize="@dimen/sp24"
-            android:textColor="@color/neutral2"
             android:layout_alignParentStart="true"
-            />
+            android:text="@string/numberic"
+            android:textColor="@color/neutral2"
+            android:textSize="@dimen/sp24" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/butAddDevice"
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/add_button"
             android:layout_marginTop="@dimen/dp2"
-            />
+            android:background="@drawable/add_button" />
 
         <View
             android:id="@+id/Divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/neutral3"
             android:layout_below="@+id/butAddDevice"
-            android:layout_marginTop="@dimen/dp8"
             android:layout_alignParentStart="true"
-            />
+            android:layout_marginTop="@dimen/dp8"
+            android:background="@color/neutral3" />
 
         <TextView
             android:id="@+id/texApplianceList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/appliances_list"
             android:layout_below="@id/Divider"
-            android:textSize="@dimen/sp16"
-            android:textColor="@color/neutral3"
+            android:layout_alignTop="@id/Divider"
             android:layout_alignParentStart="true"
             android:layout_marginTop="@dimen/dp12"
             android:letterSpacing="0.01"
-            android:layout_alignTop="@id/Divider"
-            />
+            android:text="@string/appliances_list"
+            android:textColor="@color/neutral3"
+            android:textSize="@dimen/sp16" />
 
         <TextView
             android:id="@+id/texTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/temp"
             android:layout_below="@id/texApplianceList"
-            android:textSize="@dimen/sp14"
-            android:textColor="@color/neutral3"
             android:layout_alignParentStart="true"
-            android:drawablePadding="@dimen/dp4"
             android:layout_marginTop="@dimen/dp8"
-            app:drawableStartCompat="@drawable/device_thermostat_outlined"
-            />
+            android:drawableStart="@drawable/device_thermostat_outlined"
+            android:drawablePadding="@dimen/dp4"
+            android:text="@string/temp"
+            android:textColor="@color/neutral3"
+            android:textSize="@dimen/sp14" />
 
         <TextView
             android:id="@+id/texAir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/air"
             android:layout_below="@id/texApplianceList"
-            android:textSize="@dimen/sp14"
-            android:textColor="@color/neutral3"
-            android:drawablePadding="@dimen/dp4"
-            android:layout_marginTop="@dimen/dp8"
-            app:drawableStartCompat="@drawable/air_outlined"
             android:layout_centerInParent="true"
-            />
+            android:layout_marginTop="@dimen/dp8"
+            android:drawableStart="@drawable/air_outlined"
+            android:drawablePadding="@dimen/dp4"
+            android:text="@string/air"
+            android:textColor="@color/neutral3"
+            android:textSize="@dimen/sp14" />
 
         <TextView
             android:id="@+id/texHumidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/humidity"
             android:layout_below="@id/texApplianceList"
-            android:textSize="@dimen/sp14"
-            android:textColor="@color/neutral3"
-            android:drawablePadding="@dimen/dp4"
-            android:layout_marginTop="@dimen/dp8"
-            app:drawableStartCompat="@drawable/water_drop_outlined"
             android:layout_alignParentEnd="true"
-            />
+            android:layout_marginTop="@dimen/dp8"
+            android:drawableStart="@drawable/water_drop_outlined"
+            android:drawablePadding="@dimen/dp4"
+            android:text="@string/humidity"
+            android:textColor="@color/neutral3"
+            android:textSize="@dimen/sp14" />
+
+        <TextView
+            android:id="@+id/texTotalTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texTemp"
+            android:layout_alignStart="@id/texTemp"
+            android:paddingStart="@dimen/dp24"
+            android:text="@string/total_temp"
+            android:textColor="@color/neutral1"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/texTotalAir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texAir"
+            android:layout_alignBaseline="@id/texTotalTemp"
+            android:layout_alignStart="@id/texAir"
+            android:paddingStart="@dimen/dp24"
+            android:text="@string/total_temp"
+            android:textColor="@color/neutral1"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/texTotalHumidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texAir"
+            android:layout_alignStart="@id/texHumidity"
+            android:paddingStart="@dimen/dp24"
+            android:text="@string/total_temp"
+            android:textColor="@color/neutral1"
+            android:textSize="@dimen/sp16" />
 
     </RelativeLayout>
+
+    <!--    Weekly - Monthly - Annual-->
+    <TableLayout
+        android:id="@+id/RoutineBar"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_below="@id/MainBoard"
+        android:layout_marginHorizontal="@dimen/dp16"
+        android:layout_marginVertical="@dimen/dp8"
+        android:background="@drawable/routine_bar"
+        android:elevation="@dimen/dp2"
+        android:paddingVertical="@dimen/dp8"
+        android:stretchColumns="*"
+        android:translationZ="@dimen/dp12">
+
+        <TableRow>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butWeekly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:background="@color/neutral6"
+                android:drawableBottom="@drawable/circle_unactive"
+                android:drawablePadding="-20dp"
+                android:text="@string/weekly"
+                android:textAllCaps="false" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butMonthly"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-20dp"
+                android:background="@color/neutral6"
+                android:drawableBottom="@drawable/circle_unactive"
+                android:drawablePadding="-20dp"
+                android:text="@string/monthly"
+                android:textAllCaps="false" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butAnnual"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-20dp"
+                android:background="@color/neutral6"
+                android:drawableBottom="@drawable/circle_unactive"
+                android:drawablePadding="-20dp"
+                android:text="@string/annual"
+                android:textAllCaps="false" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/texAnalysis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/RoutineBar"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp4"
+        android:layout_marginBottom="@dimen/dp12"
+        android:text="@string/analysis"
+        android:textColor="@color/neutral1"
+        android:textSize="@dimen/sp20" />
+
+    <!--   Analysis -->
+    <LinearLayout
+        android:id="@+id/Chart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/texAnalysis"
+        android:layout_marginHorizontal="@dimen/dp16"
+        android:background="@drawable/main_board"
+        android:elevation="@dimen/dp2"
+        android:orientation="vertical"
+        android:padding="@dimen/dp12"
+        android:translationZ="@dimen/dp12">
+
+        <TextView
+            android:id="@+id/texTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texApplianceList"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/dp8"
+            android:layout_marginBottom="@dimen/dp12"
+            android:drawableStart="@drawable/device_thermostat_outlined"
+            android:drawablePadding="@dimen/dp4"
+            android:text="@string/temperature"
+            android:textColor="@color/neutral3"
+            android:textSize="@dimen/sp14" />
+
+        <!--        Chart-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp110"
+            android:background="@color/neutral3" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp12"
+            android:text="@string/average"
+            android:textColor="@color/neutral1"
+            android:textSize="@dimen/sp16" />
+
+    </LinearLayout>
+
+    <!--    Add Insight-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_below="@id/Chart"
+        android:layout_marginHorizontal="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp12"
+        android:background="@drawable/insight_button"
+        android:padding="@dimen/dp12" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:padding="0dp"
+        android:stretchColumns="*"
+        android:elevation="9999dp"
+        >
+
+        <TableRow>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butHome"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/dp8"
+                android:background="@color/neutral6"
+                android:drawableTop="@drawable/home_state"
+                android:drawablePadding="-16dp"
+                android:text="@string/home"
+                android:textAllCaps="false"
+                android:textColor="@color/primary" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butDevice"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/dp8"
+                android:background="@color/neutral6"
+                android:drawableTop="@drawable/devices_filled"
+                android:drawablePadding="-16dp"
+                android:text="@string/devices"
+                android:textAllCaps="false" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butMap"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/dp8"
+                android:background="@color/neutral6"
+                android:drawableTop="@drawable/map_outlined"
+                android:drawablePadding="-16dp"
+                android:text="@string/map"
+                android:textAllCaps="false" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butPersonal"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/dp8"
+                android:background="@color/neutral6"
+                android:drawableTop="@drawable/person_outlined"
+                android:drawablePadding="-16dp"
+                android:text="@string/personal"
+                android:textAllCaps="false" />
+
+        </TableRow>
+
+    </TableLayout>
 
 </RelativeLayout>

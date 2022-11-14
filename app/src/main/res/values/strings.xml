@@ -16,4 +16,14 @@
     <string name="temp">Temp</string>
     <string name="air">Air</string>
     <string name="humidity">Humidity</string>
+    <string name="total_temp">8</string>
+    <string name="weekly">Weekly</string>
+    <string name="annual">Annual</string>
+    <string name="monthly">Monthly</string>
+    <string name="analysis">Analysis</string>
+    <string name="temperature">Temperature</string>
+    <string name="average">Average</string>
+    <string name="personal">Personal</string>
+    <string name="map">Map</string>
+    <string name="devices">Devices</string>
 </resources>
