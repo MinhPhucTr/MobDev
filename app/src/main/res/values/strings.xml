@@ -26,4 +26,5 @@
     <string name="personal">Personal</string>
     <string name="map">Map</string>
     <string name="devices">Devices</string>
+    <string name="asset_information">Asset information</string>
 </resources>

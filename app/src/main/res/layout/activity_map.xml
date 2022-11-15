@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/neutral6">
+
+    <ImageView
+        android:id="@+id/imaBackground"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:background="@drawable/top_background" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/butMenu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp20"
+        android:background="@drawable/menu_button" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/butSearch"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginEnd="@dimen/dp16"
+        android:background="@drawable/search_button" />
+
+    <TextView
+        android:id="@+id/texMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32.5dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/map"
+        android:textColor="@color/neutral6"
+        android:textSize="@dimen/sp20" />
+
+    <RelativeLayout
+        android:id="@+id/MainBoard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/butMenu"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp16"
+        android:layout_marginEnd="@dimen/dp16"
+        android:layout_marginBottom="@dimen/dp16"
+        android:background="@drawable/main_board"
+        android:elevation="1dp"
+        android:padding="@dimen/dp16"
+        android:translationZ="16dp">
+
+        <TextView
+            android:id="@+id/texAssetInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/roboto"
+            android:text="@string/asset_information"
+            android:textSize="@dimen/sp20" />
+
+        <TextView
+            android:id="@+id/texNumberic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texAssetInfo"
+            android:layout_alignParentStart="true"
+            android:text="@string/numberic"
+            android:textColor="@color/neutral2"
+            android:textSize="@dimen/sp24" />
+
+<!--        Still have UI-->
+
+    </RelativeLayout>
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/imaBackground"
+        android:layout_above="@id/Footer"
+        android:background="@color/neutral2"
+        />
+
+    <TableLayout
+        android:id="@+id/Footer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:padding="0dp"
+        android:stretchColumns="*"
+        android:elevation="9999dp"
+        >
+
+        <TableRow
+            >
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butHome"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/neutral6"
+                android:paddingVertical="@dimen/dp8"
+                android:drawableTop="@drawable/home_outlined"
+                android:text="@string/home"
+                android:textAllCaps="false"
+                android:textColor="@color/neutral3"
+android:textAlignment="center"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butDevice"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingVertical="@dimen/dp8"
+                android:background="@color/neutral6"
+                android:drawableTop="@drawable/devices_filled"
+                android:text="@string/devices"
+                android:textAllCaps="false"
+                android:textAlignment="center"
+                android:textColor="@color/neutral3"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butMap"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingVertical="@dimen/dp8"
+                android:background="@color/neutral6"
+                android:drawableTop="@drawable/map_state"
+                android:text="@string/map"
+                android:textAllCaps="false"
+                android:textAlignment="center"
+                android:textColor="@color/primary"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butPersonal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingVertical="@dimen/dp8"
+                android:background="@color/neutral6"
+                android:drawableTop="@drawable/person_outlined"
+                android:text="@string/personal"
+                android:textAllCaps="false"
+                android:textAlignment="center"
+                android:textColor="@color/neutral3"
+                />
+
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>
