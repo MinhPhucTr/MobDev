@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/home"
+        android:icon="@drawable/home_state"
+        android:title="@string/home" />
+    <item android:id="@+id/devices"
+        android:icon="@drawable/devices_filled"
+        android:title="@string/devices" />
+    <item
+        android:icon="@drawable/map_outlined"
+        android:title="@string/map"
+        android:id="@+id/map"
+         />
+    <item android:id="@+id/personal"
+        android:icon="@drawable/person_outlined"
+        android:title="@string/personal"
+        />
+</menu>

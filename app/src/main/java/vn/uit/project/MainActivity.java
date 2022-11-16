@@ -61,7 +61,7 @@ public class MainActivity extends Activity {
                 else
                 {
                     if(checkUserExisted(user, pass)) {
-                        Toast.makeText(MainActivity.this, "Log In Successfully!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, HomeActivity.class));
                     }
                     else
                         Toast.makeText(MainActivity.this, "Check Information Again!", Toast.LENGTH_SHORT).show();

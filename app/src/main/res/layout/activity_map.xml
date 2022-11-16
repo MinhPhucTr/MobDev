@@ -77,7 +77,7 @@
             android:textColor="@color/neutral2"
             android:textSize="@dimen/sp24" />
 
-<!--        Still have UI-->
+        <!--        Still have UI-->
 
     </RelativeLayout>
 
@@ -86,77 +86,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/imaBackground"
-        android:layout_above="@id/Footer"
         android:background="@color/neutral2"
-        />
+        tilesource = "Mapnik"/>
 
-    <TableLayout
-        android:id="@+id/Footer"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_alignParentBottom="true"
-        android:padding="0dp"
-        android:stretchColumns="*"
-        android:elevation="9999dp"
-        >
 
-        <TableRow
-            >
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/butHome"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@color/neutral6"
-                android:paddingVertical="@dimen/dp8"
-                android:drawableTop="@drawable/home_outlined"
-                android:text="@string/home"
-                android:textAllCaps="false"
-                android:textColor="@color/neutral3"
-android:textAlignment="center"
-                />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/butDevice"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:paddingVertical="@dimen/dp8"
-                android:background="@color/neutral6"
-                android:drawableTop="@drawable/devices_filled"
-                android:text="@string/devices"
-                android:textAllCaps="false"
-                android:textAlignment="center"
-                android:textColor="@color/neutral3"
-                />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/butMap"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:paddingVertical="@dimen/dp8"
-                android:background="@color/neutral6"
-                android:drawableTop="@drawable/map_state"
-                android:text="@string/map"
-                android:textAllCaps="false"
-                android:textAlignment="center"
-                android:textColor="@color/primary"
-                />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/butPersonal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:paddingVertical="@dimen/dp8"
-                android:background="@color/neutral6"
-                android:drawableTop="@drawable/person_outlined"
-                android:text="@string/personal"
-                android:textAllCaps="false"
-                android:textAlignment="center"
-                android:textColor="@color/neutral3"
-                />
-
-        </TableRow>
-
-    </TableLayout>
 
 </RelativeLayout>
