@@ -1,4 +1,4 @@
-package vn.uit.project;
+package vn.uit.project.FragmentComponent;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import vn.uit.project.R;
 
 public class HomeFragment extends Fragment {
     @Nullable

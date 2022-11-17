@@ -1,15 +1,17 @@
 package vn.uit.project;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import vn.uit.project.FragmentComponent.DeviceFragment;
+import vn.uit.project.FragmentComponent.HomeFragment;
+import vn.uit.project.FragmentComponent.MapFragment;
 
 public class HomeActivity extends FragmentActivity {
     BottomNavigationView botNav;
@@ -32,6 +34,8 @@ public class HomeActivity extends FragmentActivity {
                 case R.id.map:
                     replaceFragment(new MapFragment());
                     break;
+                case R.id.devices:
+                    replaceFragment(new DeviceFragment());
             }
             return true;
         });

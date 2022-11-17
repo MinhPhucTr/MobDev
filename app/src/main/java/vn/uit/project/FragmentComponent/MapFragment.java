@@ -1,4 +1,4 @@
-package vn.uit.project;
+package vn.uit.project.FragmentComponent;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment;
 
 import org.osmdroid.config.Configuration;
 import org.osmdroid.views.MapView;
+
+import vn.uit.project.R;
 
 public class MapFragment extends Fragment {
     MapView mapView;
