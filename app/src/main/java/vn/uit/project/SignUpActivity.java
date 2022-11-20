@@ -27,7 +27,6 @@ public class SignUpActivity extends AppCompatActivity {
         ediPassword = (EditText) findViewById(R.id.ediPassword);
         butSignUp = (Button) findViewById(R.id.butSignUp);
         myDatabase = new Database(this, "user_details.sqlite", null, 1);
-        myDatabase.queryData("CREATE TABLE IF NOT EXISTS User(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, pass VARCHAR)");
     }
 
     private void clickButtonSignUp()

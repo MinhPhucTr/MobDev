@@ -68,12 +68,11 @@
             android:textSize="@dimen/sp20" />
 
         <TextView
-            android:id="@+id/texNumberic"
+            android:id="@+id/texAssetName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/texAssetInfo"
             android:layout_alignParentStart="true"
-            android:text="@string/numberic"
             android:textColor="@color/neutral2"
             android:textSize="@dimen/sp24" />
 

@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,6 +35,7 @@ public class MainActivity extends Activity {
         butLogIn = (Button) findViewById(R.id.butLogInMain);
         texSignUp = (TextView) findViewById(R.id.textViewSignUp);
         myDatabase = new Database(this, "user_details.sqlite", null, 1);
+        myDatabase.queryData("CREATE TABLE IF NOT EXISTS User(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, pass VARCHAR)");
     }
 
     private void clicktexSignUp()
@@ -77,7 +79,9 @@ public class MainActivity extends Activity {
         while(myCursor.moveToNext())
         {
             nameSample = myCursor.getString(1);
+            Log.d("NAME SAMPLE", nameSample);
             passSample = myCursor.getString(2);
+            Log.d("PASS SAMPLE", passSample);
             if(name.equals(nameSample) && pass.equals(passSample))
                 return true;
         }
