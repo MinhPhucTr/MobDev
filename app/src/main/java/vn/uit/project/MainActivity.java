@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
     EditText ediUserName, ediPassword;
     Button butLogIn;
     TextView texSignUp;
-    Database myDatabase;
+    Database mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +34,7 @@ public class MainActivity extends Activity {
         ediPassword = (EditText) findViewById(R.id.ediPasswordMain);
         butLogIn = (Button) findViewById(R.id.butLogInMain);
         texSignUp = (TextView) findViewById(R.id.textViewSignUp);
-        myDatabase = new Database(this, "user_details.sqlite", null, 1);
-        myDatabase.queryData("CREATE TABLE IF NOT EXISTS User(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, pass VARCHAR)");
+        mDatabase = new Database(MainActivity.this);
     }
 
     private void clicktexSignUp()
@@ -62,29 +61,16 @@ public class MainActivity extends Activity {
                     Toast.makeText(MainActivity.this, "Please enter Password!", Toast.LENGTH_SHORT).show();
                 else
                 {
-                    if(checkUserExisted(user, pass)) {
-                        startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                    if(mDatabase.checkForSignIn(user, pass)) {
+
+                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                        intent.putExtra("USERNAME", user);
+                        startActivity(intent);
                     }
                     else
                         Toast.makeText(MainActivity.this, "Check Information Again!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-    }
-
-    private boolean checkUserExisted(String name, String pass)
-    {
-        Cursor myCursor = myDatabase.returnData("SELECT * FROM User");
-        String nameSample, passSample;
-        while(myCursor.moveToNext())
-        {
-            nameSample = myCursor.getString(1);
-            Log.d("NAME SAMPLE", nameSample);
-            passSample = myCursor.getString(2);
-            Log.d("PASS SAMPLE", passSample);
-            if(name.equals(nameSample) && pass.equals(passSample))
-                return true;
-        }
-        return false;
     }
 }

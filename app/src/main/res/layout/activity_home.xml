@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/texTotalDevice"
             android:layout_alignParentStart="true"
-            android:text="@string/numberic"
+            android:text="@string/numbericOne"
             android:textColor="@color/neutral2"
             android:textSize="@dimen/sp24" />
 
@@ -275,11 +275,19 @@
 
         <!--        Chart-->
         <RelativeLayout
+            android:id="@+id/layoutChart"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp110"
-            android:background="@color/neutral3" />
+            android:background="@color/neutral6">
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
 
         <TextView
+            android:id="@+id/texAverageHome"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/dp12"

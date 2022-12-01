@@ -5,7 +5,9 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -15,10 +17,14 @@ import vn.uit.project.FragmentComponent.MapFragment;
 
 public class HomeActivity extends FragmentActivity {
     BottomNavigationView botNav;
+    String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home2);
+        Intent intent = getIntent();
+        username = intent.getStringExtra("USERNAME");
+        Toast.makeText(HomeActivity.this, username, Toast.LENGTH_SHORT).show();
         replaceFragment(new HomeFragment());
         initialBotNav();
     }
@@ -45,6 +51,9 @@ public class HomeActivity extends FragmentActivity {
     {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Bundle mBundle = new Bundle();
+        mBundle.putString("USERNAME", username);
+        fragment.setArguments(mBundle);
         fragmentTransaction.replace(R.id.frameLayout, fragment);
         fragmentTransaction.commit();
     }

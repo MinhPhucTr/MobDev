@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class SignUpActivity extends AppCompatActivity {
     EditText ediUserName, ediPassword;
     Button butSignUp;
-    Database myDatabase;
+    Database mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
         ediUserName = (EditText) findViewById(R.id.ediUsername);
         ediPassword = (EditText) findViewById(R.id.ediPassword);
         butSignUp = (Button) findViewById(R.id.butSignUp);
-        myDatabase = new Database(this, "user_details.sqlite", null, 1);
+        mDatabase = new Database(SignUpActivity.this);
     }
 
     private void clickButtonSignUp()
@@ -42,11 +42,11 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this, "Please enter Password!", Toast.LENGTH_SHORT).show();
                 else
                 {
-                    if(checkUserExisted(name, pass))
+                    if(mDatabase.isAccountExisted(name))
                         Toast.makeText(SignUpActivity.this, "This account is used!", Toast.LENGTH_SHORT).show();
                     else
                     {
-                        myDatabase.queryData("INSERT INTO User VALUES(null, '"+name+"', '"+pass+"')");
+                        mDatabase.createAccount(name, pass);
                         Toast.makeText(SignUpActivity.this, "Create Account Successfully!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                         startActivity(intent);
@@ -56,17 +56,4 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private boolean checkUserExisted(String name, String pass)
-    {
-        Cursor myCursor = myDatabase.returnData("SELECT * FROM User");
-        String nameSample, passSample;
-        while(myCursor.moveToNext())
-        {
-            nameSample = myCursor.getString(1);
-            passSample = myCursor.getString(2);
-            if(name.equals(nameSample) && pass.equals(passSample))
-                return true;
-        }
-        return false;
-    }
 }
