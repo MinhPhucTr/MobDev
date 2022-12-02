@@ -84,7 +84,16 @@ public class HomeFragment extends Fragment {
                 texTotalHumidity.setText(mMain.getHumidity() + "");
                 texTotalAir.setText(mWind.getSpeed() + "");
                 LocalDate mLocalDate = getLatestDate();
-                if(isSameDate(mLocalDate) == false)
+                if(mLocalDate != null)
+                {
+                    if(isSameDate(mLocalDate) == false)
+                    {
+                        TempByDate mTempByDate = new TempByDate(mMain.getTemp());
+                        finalOutputString.add(mTempByDate);
+                        updateTempToDB(finalOutputString, username);
+                    }
+                }
+                else
                 {
                     TempByDate mTempByDate = new TempByDate(mMain.getTemp());
                     finalOutputString.add(mTempByDate);
@@ -124,11 +133,14 @@ public class HomeFragment extends Fragment {
     private LocalDate getLatestDate()
     {
         String tempByDateRoot = mDatabase.getTempByDate(username);
-        Type type = new TypeToken<ArrayList<TempByDate>>() {}.getType();
-        finalOutputString = gson.fromJson(tempByDateRoot, type);
-        TempByDate tempByDateObj = finalOutputString.get(finalOutputString.size() - 1);
-        LocalDate mLocalDate = LocalDate.parse(tempByDateObj.getLocalDate());
-        ready = true;
+        LocalDate mLocalDate = null;
+        if(tempByDateRoot != null)
+        {
+            Type type = new TypeToken<ArrayList<TempByDate>>() {}.getType();
+            finalOutputString = gson.fromJson(tempByDateRoot, type);
+            TempByDate tempByDateObj = finalOutputString.get(finalOutputString.size() - 1);
+            mLocalDate = LocalDate.parse(tempByDateObj.getLocalDate());
+        }
         return mLocalDate;
     }
 
