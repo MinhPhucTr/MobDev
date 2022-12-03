@@ -8,25 +8,39 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SignUpActivity extends AppCompatActivity {
     EditText ediUserName, ediPassword;
     Button butSignUp;
     Database mDatabase;
+    TextView texLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         inital();
+        clickTextLogin();
         clickButtonSignUp();
     }
 
     private void inital() {
+        texLogin = (TextView) findViewById(R.id.textViewLogin);
         ediUserName = (EditText) findViewById(R.id.ediUsername);
         ediPassword = (EditText) findViewById(R.id.ediPassword);
         butSignUp = (Button) findViewById(R.id.butSignUp);
         mDatabase = new Database(SignUpActivity.this);
+    }
+
+    private void clickTextLogin(){
+        texLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent login = new Intent(SignUpActivity.this, MainActivity.class);
+                startActivity(login);
+            }
+        });
     }
 
     private void clickButtonSignUp()

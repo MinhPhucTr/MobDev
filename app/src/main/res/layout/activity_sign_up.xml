@@ -76,5 +76,28 @@
             android:textSize="@dimen/sp14"
             tools:ignore="TouchTargetSizeCheck" />
 
+        <TextView
+            android:id="@+id/textViewNewUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/butSignUp"
+            android:layout_marginStart="@dimen/dp110"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="@string/had_account"
+            android:textSize="@dimen/sp14" />
+
+        <TextView
+            android:id="@+id/textViewLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/butSignUp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_toEndOf="@id/textViewNewUser"
+            android:paddingStart="@dimen/dp8"
+            android:text="@string/login"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/sp14" />
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
