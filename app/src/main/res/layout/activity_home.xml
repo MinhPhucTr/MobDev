@@ -274,17 +274,21 @@
             android:textSize="@dimen/sp14" />
 
         <!--        Chart-->
-        <RelativeLayout
-            android:id="@+id/layoutChart"
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp110"
-            android:background="@color/neutral6">
+            android:layout_height="156dp" />
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/layoutChart"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/dp110"-->
+<!--            android:background="@color/neutral6">-->
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </RelativeLayout>
+<!--            <com.github.mikephil.charting.charts.LineChart-->
+<!--                android:id="@+id/chart"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent" />-->
+<!--        </RelativeLayout>-->
 
         <TextView
             android:id="@+id/texAverageHome"

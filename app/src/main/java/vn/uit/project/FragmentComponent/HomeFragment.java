@@ -107,6 +107,9 @@ public class HomeFragment extends Fragment {
                 chart.invalidate();
                 double averageTemp = calculateAverageTemp();
                 texAverageHome.append(" " + String.format("%.3f", averageTemp));
+
+                chart.getAxisLeft().setDrawLabels(false);
+                chart.getAxisRight().setDrawLabels(false);
             }
 
             @Override

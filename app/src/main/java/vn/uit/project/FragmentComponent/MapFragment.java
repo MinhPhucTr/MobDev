@@ -47,7 +47,7 @@ public class MapFragment extends Fragment {
     ApiInterface apiInterface;
     IMapController iMapController;
     GeoPoint markerPoint;
-    Marker mMarker;
+    Marker mMarker = null;
     double lat = 0, lon = 0;
     @Nullable
     @Override
@@ -62,6 +62,10 @@ public class MapFragment extends Fragment {
         getMap();
         getAssetDetails();
         return view;
+    }
+
+    private void MarkerClick(){
+
     }
 
     private void getMap()
@@ -99,6 +103,17 @@ public class MapFragment extends Fragment {
                 mMarker.setIcon(getResources().getDrawable(R.drawable.marker, null));
                 mMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
                 mapView.getOverlays().add(mMarker);
+
+                mMarker.setSubDescription("321");
+                mMarker.setSnippet("123");
+                mMarker.setTitle("Temp");
+                mMarker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
+                    @Override
+                    public boolean onMarkerClick(Marker marker, MapView mapView) {
+                        marker.showInfoWindow();
+                        return false;
+                    }
+                });
             }
 
             @Override
@@ -107,6 +122,7 @@ public class MapFragment extends Fragment {
             }
         });
     }
+
 
     private void getAssetDetails()
     {
