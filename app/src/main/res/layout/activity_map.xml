@@ -57,6 +57,33 @@
         android:padding="@dimen/dp16"
         android:translationZ="16dp">
 
+        <ImageView
+            android:id="@+id/displayTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:alpha="0.2"
+            android:background="@drawable/devices_temp"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/displayWater"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:alpha="0.2"
+            android:background="@drawable/devices_water"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/displayAir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:alpha="0.2"
+            android:background="@drawable/devices_air"
+            android:visibility="invisible" />
+
         <TextView
             android:id="@+id/texAssetInfo"
             android:layout_width="wrap_content"
@@ -82,12 +109,11 @@
 
     <org.osmdroid.views.MapView
         android:id="@+id/mapMap"
+        tilesource="Mapnik"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/imaBackground"
-        android:background="@color/neutral2"
-        tilesource = "Mapnik"/>
-
+        android:background="@color/neutral2" />
 
 
 </RelativeLayout>

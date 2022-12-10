@@ -30,4 +30,6 @@
     <string name="asset_information">Asset information</string>
     <string name="water">Water</string>
     <string name="had_account">Had account?</string>
+    <string name="title">Title</string>
+    <string name="subtitle">Subtitle</string>
 </resources>

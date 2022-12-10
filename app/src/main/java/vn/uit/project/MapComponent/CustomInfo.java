@@ -1,21 +1,38 @@
 package vn.uit.project.MapComponent;
 
+import android.widget.TextView;
+
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.infowindow.MarkerInfoWindow;
+
+import vn.uit.project.R;
 
 public class CustomInfo extends MarkerInfoWindow {
     /**
-     * @param layoutResId layout that must contain these ids: bubble_title,bubble_description,
+     * layout that must contain these ids: bubble_title,bubble_description,
      *                    bubble_subdescription, bubble_image
-     * @param mapView
+     * mapView
      */
-    public CustomInfo(int layoutResId, MapView mapView) {
-        super(layoutResId, mapView);
+    MapView mapView;
+    public CustomInfo(MapView mapView) {
+        super(R.layout.info_marker, mapView);
+        this.mapView = mapView;
     }
 
     @Override
     public void onOpen(Object item) {
-        super.onOpen(item);
+//        super.onOpen(item);
+
+        Marker marker = (Marker) item;
+
+        TextView tvTitle = (TextView) mView.findViewById(R.id.bubble_title);
+        TextView tvDescription = (TextView) mView.findViewById(R.id.bubble_description);
+        TextView tvSubDescription = (TextView) mView.findViewById(R.id.bubble_subdescription);
+
+        tvTitle.setText(marker.getTitle());
+        tvDescription.setText(marker.getSnippet());
+        tvSubDescription.setText(marker.getSubDescription());
     }
 
     @Override

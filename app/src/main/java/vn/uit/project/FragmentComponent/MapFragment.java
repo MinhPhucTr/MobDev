@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +24,10 @@ import org.osmdroid.config.Configuration;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.ItemizedIconOverlay;
+import org.osmdroid.views.overlay.ItemizedOverlayWithFocus;
 import org.osmdroid.views.overlay.Marker;
+import org.osmdroid.views.overlay.OverlayItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +42,8 @@ import vn.uit.project.AssetComponent.Attributes;
 import vn.uit.project.AssetComponent.Coord;
 import vn.uit.project.AssetComponent.Value;
 import vn.uit.project.AssetComponent.WeatherData;
+import vn.uit.project.MainActivity;
+import vn.uit.project.MapComponent.CustomInfo;
 import vn.uit.project.MapComponent.Default;
 import vn.uit.project.MapComponent.Map;
 import vn.uit.project.MapComponent.Option;
@@ -44,11 +52,13 @@ import vn.uit.project.R;
 public class MapFragment extends Fragment {
     MapView mapView;
     TextView texAssetName;
+    ImageView imaTemp, imaAir, imaWater;
     ApiInterface apiInterface;
     IMapController iMapController;
     GeoPoint markerPoint;
     Marker mMarker = null;
     double lat = 0, lon = 0;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,6 +67,9 @@ public class MapFragment extends Fragment {
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
         View view = inflater.inflate(R.layout.activity_map, container, false);
         mapView = view.findViewById(R.id.mapMap);
+        imaTemp = view.findViewById(R.id.displayTemp);
+        imaAir = view.findViewById(R.id.displayAir);
+        imaWater = view.findViewById(R.id.displayWater);
         texAssetName = view.findViewById(R.id.texAssetName);
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         getMap();
@@ -64,12 +77,11 @@ public class MapFragment extends Fragment {
         return view;
     }
 
-    private void MarkerClick(){
+    private void MarkerClick() {
 
     }
 
-    private void getMap()
-    {
+    private void getMap() {
         mapView.setBuiltInZoomControls(true);
         mapView.setMultiTouchControls(true);
         iMapController = mapView.getController();
@@ -106,14 +118,25 @@ public class MapFragment extends Fragment {
 
                 mMarker.setSubDescription("321");
                 mMarker.setSnippet("123");
-                mMarker.setTitle("Temp");
+                mMarker.setTitle("Temperature");
+                mMarker.setInfoWindow(new CustomInfo(mapView));
+                mMarker.setInfoWindowAnchor(Marker.ANCHOR_CENTER, -0.1f);
+
+                // region Marker Click
                 mMarker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
                     @Override
                     public boolean onMarkerClick(Marker marker, MapView mapView) {
                         marker.showInfoWindow();
+                        String displayImageView = texAssetName.getText().toString();
+                        switch (displayImageView) {
+                            case "Weather Asset": {
+                                imaWater.setVisibility(View.VISIBLE);
+                            }
+                        }
                         return false;
                     }
                 });
+                // endregion
             }
 
             @Override
@@ -124,8 +147,7 @@ public class MapFragment extends Fragment {
     }
 
 
-    private void getAssetDetails()
-    {
+    private void getAssetDetails() {
         Call<Asset> callAPIAsset = apiInterface.getAsset("6H4PeKLRMea1L0WsRXXWp9");
         callAPIAsset.enqueue(new Callback<Asset>() {
             @Override

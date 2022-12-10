@@ -186,52 +186,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/MainBoard"
-        android:layout_marginHorizontal="@dimen/dp16"
-        >
+        android:layout_marginHorizontal="@dimen/dp16">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/butTempDevices"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp8"
+            android:layout_weight="1"
             android:background="@drawable/devices_button"
             android:drawableTop="@drawable/devices_temp"
             android:paddingVertical="@dimen/dp16"
             android:text="@string/temperature"
             android:textAllCaps="false"
-            android:textSize="@dimen/sp16"
-            android:layout_weight="1"
-            android:layout_marginRight="@dimen/dp8"
-            />
+            android:textSize="@dimen/sp16" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/butAirDevices"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp8"
+            android:layout_weight="1"
             android:background="@drawable/devices_button"
             android:drawableTop="@drawable/devices_air"
             android:paddingVertical="@dimen/dp16"
             android:text="@string/air"
             android:textAllCaps="false"
             android:textSize="@dimen/sp16"
-            android:translationZ="@dimen/dp16"
-            android:layout_weight="1"
-            android:layout_marginLeft="@dimen/dp8"
-            />
+            android:translationZ="@dimen/dp16" />
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/TempAir"
+        android:layout_marginHorizontal="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp20"
         android:background="@drawable/devices_button"
         android:drawableTop="@drawable/devices_water"
-        android:layout_below="@id/TempAir"
         android:paddingVertical="@dimen/dp16"
         android:text="@string/water"
         android:textAllCaps="false"
         android:textSize="@dimen/sp16"
-        android:translationZ="16dp"
-        android:layout_marginTop="@dimen/dp20"
-        android:layout_marginHorizontal="@dimen/dp16"
-        />
+        android:translationZ="16dp" />
 
 </RelativeLayout>
