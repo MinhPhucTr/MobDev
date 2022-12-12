@@ -1,11 +1,16 @@
 package vn.uit.project.FragmentComponent;
 
+import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,9 +26,14 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -42,148 +52,104 @@ import vn.uit.project.R;
 import vn.uit.project.TempByDate.TempByDate;
 
 public class HomeFragment extends Fragment {
-    TextView texTotalTemp, texTotalAir, texTotalHumidity;
+    TextView texTotalTemp, texTotalAir, texTotalHumidity, texNumberic;
     ApiInterface apiInterface;
-    Database mDatabase;
-    String username;
-    LineChart chart;
     TextView texAverageHome;
-    ArrayList<TempByDate> finalOutputString = new ArrayList<>();
-    Gson gson = new Gson();
-    boolean ready = false;
+    Button butAddDevice;
+    List<Asset> listAsset = new ArrayList<>();
+    List<String> listAssetName = new ArrayList<>();
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_home, container, false);
-        mDatabase = new Database(getContext());
         Bundle mBundle = this.getArguments();
-        username = mBundle.getString("USERNAME");
-        texTotalTemp = view.findViewById(R.id.texTotalTemp);
-        texTotalAir = view.findViewById(R.id.texTotalAir);
-        texTotalHumidity = view.findViewById(R.id.texTotalHumidity);
-        chart = view.findViewById(R.id.chart);
-        texAverageHome = view.findViewById(R.id.texAverageHome);
-        getAssetWeatherData();
+        listAsset = (List<Asset>) mBundle.getSerializable("LISTASSET");
+        initial(view);
+        clickButtonAddDevice();
         return view;
     }
 
-    private void getAssetWeatherData()
+    private void initial(View view)
     {
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<Asset> callAPIAsset = apiInterface.getAsset("6H4PeKLRMea1L0WsRXXWp9");
-        callAPIAsset.enqueue(new Callback<Asset>() {
+        texTotalTemp = view.findViewById(R.id.texTotalTemp);
+        texTotalAir = view.findViewById(R.id.texTotalAir);
+        texTotalHumidity = view.findViewById(R.id.texTotalHumidity);
+        texAverageHome = view.findViewById(R.id.texAverageHome);
+        texNumberic = view.findViewById(R.id.texNumberic);
+        butAddDevice = view.findViewById(R.id.butAddDevice);
+
+        texNumberic.setText(listAsset.size() + "");
+
+        for(Asset mAsset : listAsset)
+            listAssetName.add(mAsset.getName());
+    }
+
+    private void clickButtonAddDevice()
+    {
+        butAddDevice.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(Call<Asset> call, Response<Asset> response) {
-                Asset mAsset = response.body();
-                Attributes mAttributes = mAsset.getAttributes();
-                WeatherData mWeatherData = mAttributes.getWeatherData();
-                Value mValue = mWeatherData.getValue();
-                Main mMain = mValue.getMain();
-                Wind mWind = mValue.getWind();
-                texTotalTemp.setText(mMain.getTemp() + "");
-                texTotalHumidity.setText(mMain.getHumidity() + "");
-                texTotalAir.setText(mWind.getSpeed() + "");
-                LocalDate mLocalDate = getLatestDate();
-                if(mLocalDate != null)
-                {
-                    if(isSameDate(mLocalDate) == false)
-                    {
-                        TempByDate mTempByDate = new TempByDate(mMain.getTemp());
-                        finalOutputString.add(mTempByDate);
-                        updateTempToDB(finalOutputString, username);
+            public void onClick(View view) {
+                Dialog mDialog = new Dialog(getContext());
+                mDialog.setContentView(R.layout.list_assets);
+                ListView lisAssets = mDialog.findViewById(R.id.lisAssets);
+                ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, listAssetName);
+                lisAssets.setAdapter(adapter);
+                lisAssets.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Toast.makeText(getContext(), listAssetName.get(i), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getUpdateTime(listAssetName.get(i)), Toast.LENGTH_SHORT).show();
+                        showWeatherDetails(listAssetName.get(i));
+                        mDialog.dismiss();
                     }
-                }
-                else
-                {
-                    TempByDate mTempByDate = new TempByDate(mMain.getTemp());
-                    finalOutputString.add(mTempByDate);
-                    updateTempToDB(finalOutputString, username);
-                }
-                LineDataSet lineDataSet1 = new LineDataSet(dataValues1(), "TEMPERATURE IN WEEK");
-                ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-                dataSets.add(lineDataSet1);
-                LineData data = new LineData(dataSets);
-                chart.setData(data);
-                chart.invalidate();
-                double averageTemp = calculateAverageTemp();
-                texAverageHome.append(" " + String.format("%.3f", averageTemp));
-
-                chart.getAxisLeft().setDrawLabels(false);
-                chart.getAxisRight().setDrawLabels(false);
-            }
-
-            @Override
-            public void onFailure(Call<Asset> call, Throwable t) {
-                Log.d("ERROR", t.toString());
+                });
+                mDialog.show();
             }
         });
     }
 
-    private boolean isSameDate(LocalDate mLocalDate)
+    private void showWeatherDetails(String name)
     {
-        LocalDate now = LocalDate.now();
-        if((mLocalDate.getDayOfMonth() == now.getDayOfMonth()) && (mLocalDate.getMonthValue() == now.getMonthValue()) && (mLocalDate.getYear() == now.getYear()))
-            return true;
-        return false;
-    }
-
-    public void updateTempToDB(ArrayList<TempByDate> finalOutputString, String username)
-    {
-        String tempByDateStr = gson.toJson(finalOutputString);
-        mDatabase.updateTempByDate(username, tempByDateStr);
-    }
-
-    private LocalDate getLatestDate()
-    {
-        String tempByDateRoot = mDatabase.getTempByDate(username);
-        LocalDate mLocalDate = null;
-        if(tempByDateRoot != null)
+        for(Asset mAsset : listAsset)
         {
-            Type type = new TypeToken<ArrayList<TempByDate>>() {}.getType();
-            finalOutputString = gson.fromJson(tempByDateRoot, type);
-            TempByDate tempByDateObj = finalOutputString.get(finalOutputString.size() - 1);
-            mLocalDate = LocalDate.parse(tempByDateObj.getLocalDate());
-        }
-        return mLocalDate;
-    }
-
-    private ArrayList<Entry> dataValues1()
-    {
-        ArrayList<Entry> dataVals = new ArrayList<Entry>();
-        int i = 0;
-        ArrayList<TempByDate> tempList = finalOutputString;
-        if(tempList.size() > 7)
-        {
-            tempList.clear();
-            for(int index = tempList.size() -7; index <= tempList.size() - 1; index ++)
+            if(mAsset.getName().equals(name))
             {
-                tempList.add(finalOutputString.get(index));
+                texTotalTemp.setText(mAsset.getAttributes().getWeatherData().getValue().getMain().getTemp() + "");
+                texTotalHumidity.setText(mAsset.getAttributes().getWeatherData().getValue().getMain().getHumidity() + "");
+                texTotalAir.setText(mAsset.getAttributes().getWeatherData().getValue().getWind().getSpeed() + "");
+                break;
             }
         }
-        for(TempByDate temp : tempList)
-        {
-            dataVals.add(new Entry(i, (float) temp.getTemp()));
-            i++;
-        }
-        return dataVals;
     }
 
-    private double calculateAverageTemp()
+    public String parseUpdateTime(long timestamp)
     {
-        double average = 0;
-        int count = 0;
-            ArrayList<TempByDate> tempList = finalOutputString;
-            if (tempList.size() > 7) {
-                tempList.clear();
-                for (int index = tempList.size() - 7; index <= tempList.size() - 1; index++) {
-                    tempList.add(finalOutputString.get(index));
-                }
+        String result = "";
+        try {
+            Date updateTime = new Date(timestamp);
+            SimpleDateFormat sim = new SimpleDateFormat("'Updated on:'EEE',' MMM dd',' YYYY h:mm a", Locale.ENGLISH);
+            result = sim.format(updateTime);
+        }
+        catch (Exception e)
+        {
+            Log.d("ERROR", e.getMessage());
+        }
+        return result;
+    }
+
+    private String getUpdateTime(String name)
+    {
+        String result = "";
+        for(Asset mAsset : listAsset)
+        {
+            if(mAsset.getName().equals(name))
+            {
+                long timestamp = mAsset.getAttributes().getWeatherData().getTimestamp();
+                result = parseUpdateTime(timestamp);
+               break;
             }
-            for (TempByDate temp : tempList) {
-                average += temp.getTemp();
-                count++;
-            }
-            average /= count;
-        return average;
+        }
+        return result;
     }
 }

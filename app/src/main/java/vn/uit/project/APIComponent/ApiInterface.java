@@ -1,5 +1,7 @@
 package vn.uit.project.APIComponent;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -11,4 +13,6 @@ public interface ApiInterface {
     Call<Map> getMap();
     @GET("api/master/asset/{assetID}")
     Call<Asset> getAsset(@Path("assetID") String assetID);
+    @GET("api/master/asset/user/current")
+    Call<List<Asset>> getCurrentAsset();
 }

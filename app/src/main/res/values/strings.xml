@@ -29,7 +29,8 @@
     <string name="devices">Devices</string>
     <string name="asset_information">Asset information</string>
     <string name="water">Water</string>
-    <string name="had_account">Had account?</string>
+    <string name="processing">Processing...</string>
+    <string name="had_account">Had Account ? </string>
     <string name="title">Title</string>
     <string name="subtitle">Subtitle</string>
 </resources>

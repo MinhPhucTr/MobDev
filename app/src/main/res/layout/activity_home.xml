@@ -65,6 +65,7 @@
             android:layout_alignParentTop="true"
             android:fontFamily="@font/roboto"
             android:text="@string/device_added"
+            android:textColor="@color/neutral3"
             android:textSize="@dimen/sp20" />
 
         <TextView
@@ -153,7 +154,7 @@
             android:layout_below="@id/texTemp"
             android:layout_alignStart="@id/texTemp"
             android:paddingStart="@dimen/dp24"
-            android:text="@string/total_temp"
+
             android:textColor="@color/neutral1"
             android:textSize="@dimen/sp16" />
 
@@ -165,7 +166,6 @@
             android:layout_alignBaseline="@id/texTotalTemp"
             android:layout_alignStart="@id/texAir"
             android:paddingStart="@dimen/dp24"
-            android:text="@string/total_temp"
             android:textColor="@color/neutral1"
             android:textSize="@dimen/sp16" />
 
@@ -176,7 +176,6 @@
             android:layout_below="@id/texAir"
             android:layout_alignStart="@id/texHumidity"
             android:paddingStart="@dimen/dp24"
-            android:text="@string/total_temp"
             android:textColor="@color/neutral1"
             android:textSize="@dimen/sp16" />
 
@@ -203,6 +202,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-20dp"
+                android:textColor="@color/neutral1"
                 android:background="@color/neutral6"
                 android:drawableBottom="@drawable/circle_unactive"
                 android:drawablePadding="-20dp"
@@ -217,6 +217,7 @@
                 android:background="@color/neutral6"
                 android:drawableBottom="@drawable/circle_unactive"
                 android:drawablePadding="-20dp"
+                android:textColor="@color/neutral1"
                 android:text="@string/monthly"
                 android:textAllCaps="false" />
 
@@ -229,6 +230,7 @@
                 android:drawableBottom="@drawable/circle_unactive"
                 android:drawablePadding="-20dp"
                 android:text="@string/annual"
+                android:textColor="@color/neutral1"
                 android:textAllCaps="false" />
         </TableRow>
 
