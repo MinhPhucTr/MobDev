@@ -7,6 +7,8 @@ public class WeatherData {
     private Value value;
     @SerializedName("timestamp")
     long timestamp;
+    @SerializedName("name")
+    String name;
 
     public long getTimestamp() {
         return timestamp;
@@ -22,5 +24,13 @@ public class WeatherData {
 
     public void setValue(Value value) {
         this.value = value;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

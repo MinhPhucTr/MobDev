@@ -33,4 +33,7 @@
     <string name="had_account">Had Account ? </string>
     <string name="title">Title</string>
     <string name="subtitle">Subtitle</string>
+    <string name="location_detail">Location detail</string>
+    <string name="location">Location</string>
+    <string name="view_more">View more</string>
 </resources>

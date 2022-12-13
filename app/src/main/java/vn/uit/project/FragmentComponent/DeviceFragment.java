@@ -24,7 +24,6 @@ import vn.uit.project.AssetComponent.Wind;
 import vn.uit.project.R;
 
 public class DeviceFragment extends Fragment {
-    TextView texTotalTemp, texTotalHumidity, texTotalAir;
     ApiInterface apiInterface;
     @Nullable
     @Override
@@ -36,9 +35,6 @@ public class DeviceFragment extends Fragment {
 
     private void initial(View view)
     {
-        texTotalTemp = view.findViewById(R.id.texTotalTemp);
-        texTotalHumidity = view.findViewById(R.id.texTotalHumidity);
-        texTotalAir = view.findViewById(R.id.texTotalAir);
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
     }
 

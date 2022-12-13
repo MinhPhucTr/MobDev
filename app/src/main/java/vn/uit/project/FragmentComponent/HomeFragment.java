@@ -52,7 +52,7 @@ import vn.uit.project.R;
 import vn.uit.project.TempByDate.TempByDate;
 
 public class HomeFragment extends Fragment {
-    TextView texTotalTemp, texTotalAir, texTotalHumidity, texNumberic;
+    TextView texTotalLocation1, texTotalLocation3, texTotalLocation2, texNumberic;
     ApiInterface apiInterface;
     TextView texAverageHome;
     Button butAddDevice;
@@ -72,9 +72,9 @@ public class HomeFragment extends Fragment {
     private void initial(View view)
     {
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        texTotalTemp = view.findViewById(R.id.texTotalTemp);
-        texTotalAir = view.findViewById(R.id.texTotalAir);
-        texTotalHumidity = view.findViewById(R.id.texTotalHumidity);
+        texTotalLocation1 = view.findViewById(R.id.texTotalLocation1);
+        texTotalLocation3 = view.findViewById(R.id.texTotalLocation3);
+        texTotalLocation2 = view.findViewById(R.id.texTotalLocation2);
         texAverageHome = view.findViewById(R.id.texAverageHome);
         texNumberic = view.findViewById(R.id.texNumberic);
         butAddDevice = view.findViewById(R.id.butAddDevice);
@@ -115,9 +115,9 @@ public class HomeFragment extends Fragment {
         {
             if(mAsset.getName().equals(name))
             {
-                texTotalTemp.setText(mAsset.getAttributes().getWeatherData().getValue().getMain().getTemp() + "");
-                texTotalHumidity.setText(mAsset.getAttributes().getWeatherData().getValue().getMain().getHumidity() + "");
-                texTotalAir.setText(mAsset.getAttributes().getWeatherData().getValue().getWind().getSpeed() + "");
+                texTotalLocation1.setText(mAsset.getAttributes().getWeatherData().getValue().getMain().getTemp() + "");
+                texTotalLocation2.setText(mAsset.getAttributes().getWeatherData().getValue().getMain().getHumidity() + "");
+                texTotalLocation3.setText(mAsset.getAttributes().getWeatherData().getValue().getWind().getSpeed() + "");
                 break;
             }
         }

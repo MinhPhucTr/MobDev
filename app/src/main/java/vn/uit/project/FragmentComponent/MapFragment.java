@@ -30,6 +30,7 @@ import org.osmdroid.views.overlay.ItemizedOverlayWithFocus;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.OverlayItem;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,12 +53,11 @@ import vn.uit.project.R;
 
 public class MapFragment extends Fragment {
     MapView mapView;
-    TextView texAssetName;
-    ImageView imaTemp, imaAir, imaWater;
     ApiInterface apiInterface;
     MapController mapController;
     List<Asset> listAsset = new ArrayList<>();
     Thread mThread;
+    TextView texTemp, texAir, texHumidity;
 
     @Nullable
     @Override
@@ -74,16 +74,12 @@ public class MapFragment extends Fragment {
 
     private void initial(View view)
     {
+        texTemp = view.findViewById(R.id.texTemp);
+        texAir = view.findViewById(R.id.texAir);
+        texHumidity = view.findViewById(R.id.texHumidity);
         mapView = view.findViewById(R.id.mapMap);
-        imaTemp = view.findViewById(R.id.displayTemp);
-        imaAir = view.findViewById(R.id.displayAir);
-        imaWater = view.findViewById(R.id.displayWater);
-        texAssetName = view.findViewById(R.id.texAssetName);
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         mapController = (MapController) mapView.getController();
-    }
-    private void MarkerClick() {
-
     }
 
     private void setUpMap() {
@@ -123,11 +119,17 @@ public class MapFragment extends Fragment {
         mThread.start();
     }
 
-    private void setUpMarkerDetail(Marker mMarker, String assetName)
+    private void setUpMarkerDetail(Marker mMarker, Asset asset)
     {
-        mMarker.setSubDescription("321");
-        mMarker.setSnippet("123");
-        mMarker.setTitle("Temperature");
+        mMarker.setTitle(asset.getName());
+        mMarker.setSubDescription(asset.getAttributes().getWeatherData().getValue().getName());
+        mMarker.setSnippet(String.format("[%s, %s]",
+                new DecimalFormat("##.##")
+                        .format(asset.getAttributes().getLocation()
+                                .getValue().getCoordinates()[1]),
+                new DecimalFormat("##.##")
+                        .format(asset.getAttributes().getLocation()
+                                .getValue().getCoordinates()[0])));
         mMarker.setInfoWindow(new CustomInfo(mapView));
         mMarker.setInfoWindowAnchor(Marker.ANCHOR_CENTER, -0.1f);
 
@@ -135,14 +137,13 @@ public class MapFragment extends Fragment {
         mMarker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker, MapView mapView) {
-                texAssetName.setText(assetName);
                 marker.showInfoWindow();
-                String displayImageView = texAssetName.getText().toString();
-                switch (displayImageView) {
-                    case "Weather Asset": {
-                        imaWater.setVisibility(View.VISIBLE);
-                    }
-                }
+                texTemp.setText(String.format("%s °C" ,asset.getAttributes().getWeatherData()
+                        .getValue().getMain().getTemp()));
+                texAir.setText(String.format("%s m/s", asset.getAttributes().getWeatherData()
+                        .getValue().getWind().getSpeed()));
+                texHumidity.setText(String.format("%s g.m³", asset.getAttributes().getWeatherData()
+                        .getValue().getMain().getHumidity()));
                 return false;
             }
         });
@@ -159,7 +160,7 @@ public class MapFragment extends Fragment {
         mMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         mMarker.setIcon(getResources().getDrawable(R.drawable.marker, null));
         mMarker.setPosition(new GeoPoint(coordinates[1], coordinates[0]));
-        setUpMarkerDetail(mMarker, mAsset.getName());
+        setUpMarkerDetail(mMarker, mAsset);
         mapView.getOverlays().add(mMarker);
         }
     }

@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/butMenu"
         android:layout_marginStart="@dimen/dp16"
-        android:layout_marginTop="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp12"
         android:layout_marginEnd="@dimen/dp16"
         android:layout_marginBottom="@dimen/dp16"
         android:background="@drawable/main_board"
@@ -57,32 +57,47 @@
         android:padding="@dimen/dp16"
         android:translationZ="16dp">
 
-        <ImageView
-            android:id="@+id/displayTemp"
+        <TextView
+            android:id="@+id/texTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:alpha="0.2"
-            android:background="@drawable/devices_temp"
-            android:visibility="invisible" />
+            android:layout_below="@id/texAssetInfo"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/dp8"
+            android:drawableStart="@drawable/device_thermostat_outlined"
+            android:drawablePadding="@dimen/dp4"
+            android:gravity="center"
+            android:text="@string/temp"
+            android:textColor="@color/neutral2"
+            android:textSize="@dimen/sp14" />
 
-        <ImageView
-            android:id="@+id/displayWater"
+        <TextView
+            android:id="@+id/texAir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:alpha="0.2"
-            android:background="@drawable/devices_water"
-            android:visibility="invisible" />
+            android:layout_below="@id/texAssetInfo"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dp8"
+            android:drawableStart="@drawable/air_outlined"
+            android:drawablePadding="@dimen/dp4"
+            android:gravity="center"
+            android:text="@string/air"
+            android:textColor="@color/neutral2"
+            android:textSize="@dimen/sp14" />
 
-        <ImageView
-            android:id="@+id/displayAir"
+        <TextView
+            android:id="@+id/texHumidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:alpha="0.2"
-            android:background="@drawable/devices_air"
-            android:visibility="invisible" />
+            android:layout_below="@id/texAssetInfo"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp8"
+            android:drawableStart="@drawable/water_drop_outlined"
+            android:drawablePadding="@dimen/dp4"
+            android:gravity="center"
+            android:text="@string/water"
+            android:textColor="@color/neutral2"
+            android:textSize="@dimen/sp14" />
 
         <TextView
             android:id="@+id/texAssetInfo"
@@ -93,16 +108,33 @@
             android:fontFamily="@font/roboto"
             android:text="@string/asset_information"
             android:textColor="@color/neutral3"
-            android:textSize="@dimen/sp20" />
+            android:layout_marginBottom="@dimen/dp4"
+            android:textSize="@dimen/sp16" />
 
-        <TextView
-            android:id="@+id/texAssetName"
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/texAssetInfo"
-            android:layout_alignParentStart="true"
-            android:textColor="@color/neutral2"
-            android:textSize="@dimen/sp24" />
+            android:layout_height="24dp"
+            android:background="@color/neutral6"
+            android:text="@string/view_more"
+            android:textAllCaps="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:textSize="12sp"
+            android:translationZ="0dp"
+            android:elevation="0dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:textColor="@color/primary"
+            android:drawableRight="@drawable/ic_baseline_read_more_24"
+            />
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/texAssetName"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@id/texAssetInfo"-->
+        <!--            android:layout_alignParentStart="true"-->
+        <!--            android:textColor="@color/neutral2"-->
+        <!--            android:textSize="@dimen/sp24" />-->
 
         <!--        Still have UI-->
 

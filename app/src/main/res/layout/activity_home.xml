@@ -104,7 +104,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="@dimen/dp12"
             android:letterSpacing="0.01"
-            android:text="@string/appliances_list"
+            android:text="@string/location_detail"
             android:textColor="@color/neutral3"
             android:textSize="@dimen/sp16" />
 
@@ -115,10 +115,10 @@
             android:layout_below="@id/texApplianceList"
             android:layout_alignParentStart="true"
             android:layout_marginTop="@dimen/dp8"
-            android:drawableStart="@drawable/device_thermostat_outlined"
+            android:drawableStart="@drawable/outline_location"
             android:drawablePadding="@dimen/dp4"
-            android:text="@string/temp"
-            android:textColor="@color/neutral3"
+            android:text="@string/location"
+            android:textColor="@color/neutral2"
             android:textSize="@dimen/sp14" />
 
         <TextView
@@ -128,10 +128,10 @@
             android:layout_below="@id/texApplianceList"
             android:layout_centerInParent="true"
             android:layout_marginTop="@dimen/dp8"
-            android:drawableStart="@drawable/air_outlined"
+            android:drawableStart="@drawable/outline_location"
             android:drawablePadding="@dimen/dp4"
-            android:text="@string/air"
-            android:textColor="@color/neutral3"
+            android:text="@string/location"
+            android:textColor="@color/neutral2"
             android:textSize="@dimen/sp14" />
 
         <TextView
@@ -141,14 +141,14 @@
             android:layout_below="@id/texApplianceList"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/dp8"
-            android:drawableStart="@drawable/water_drop_outlined"
+            android:drawableStart="@drawable/outline_location"
             android:drawablePadding="@dimen/dp4"
-            android:text="@string/humidity"
-            android:textColor="@color/neutral3"
+            android:text="@string/location"
+            android:textColor="@color/neutral2"
             android:textSize="@dimen/sp14" />
 
         <TextView
-            android:id="@+id/texTotalTemp"
+            android:id="@+id/texTotalLocation1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/texTemp"
@@ -159,18 +159,18 @@
             android:textSize="@dimen/sp16" />
 
         <TextView
-            android:id="@+id/texTotalAir"
+            android:id="@+id/texTotalLocation2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/texAir"
-            android:layout_alignBaseline="@id/texTotalTemp"
+            android:layout_alignBaseline="@id/texTotalLocation1"
             android:layout_alignStart="@id/texAir"
             android:paddingStart="@dimen/dp24"
             android:textColor="@color/neutral1"
             android:textSize="@dimen/sp16" />
 
         <TextView
-            android:id="@+id/texTotalHumidity"
+            android:id="@+id/texTotalLocation3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/texAir"
@@ -202,12 +202,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-20dp"
-                android:textColor="@color/neutral1"
                 android:background="@color/neutral6"
                 android:drawableBottom="@drawable/circle_unactive"
                 android:drawablePadding="-20dp"
                 android:text="@string/weekly"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textColor="@color/neutral1" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/butMonthly"
@@ -217,9 +217,9 @@
                 android:background="@color/neutral6"
                 android:drawableBottom="@drawable/circle_unactive"
                 android:drawablePadding="-20dp"
-                android:textColor="@color/neutral1"
                 android:text="@string/monthly"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textColor="@color/neutral1" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/butAnnual"
@@ -230,8 +230,8 @@
                 android:drawableBottom="@drawable/circle_unactive"
                 android:drawablePadding="-20dp"
                 android:text="@string/annual"
-                android:textColor="@color/neutral1"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textColor="@color/neutral1" />
         </TableRow>
 
     </TableLayout>
@@ -280,26 +280,44 @@
             android:id="@+id/chart"
             android:layout_width="match_parent"
             android:layout_height="156dp" />
-<!--        <RelativeLayout-->
-<!--            android:id="@+id/layoutChart"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="@dimen/dp110"-->
-<!--            android:background="@color/neutral6">-->
+        <!--        <RelativeLayout-->
+        <!--            android:id="@+id/layoutChart"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="@dimen/dp110"-->
+        <!--            android:background="@color/neutral6">-->
 
-<!--            <com.github.mikephil.charting.charts.LineChart-->
-<!--                android:id="@+id/chart"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent" />-->
-<!--        </RelativeLayout>-->
+        <!--            <com.github.mikephil.charting.charts.LineChart-->
+        <!--                android:id="@+id/chart"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent" />-->
+        <!--        </RelativeLayout>-->
 
-        <TextView
-            android:id="@+id/texAverageHome"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/dp12"
-            android:text="@string/average"
-            android:textColor="@color/neutral1"
-            android:textSize="@dimen/sp16" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/texAverageHome"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="@string/average"
+                android:textColor="@color/neutral1"
+                android:layout_weight="1"
+                android:textSize="@dimen/sp16" />
+
+            <TextView
+                android:id="@+id/texLastUpdated"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="Last Update: 01/01/2022"
+                android:textColor="@color/neutral1"
+                android:textSize="@dimen/sp16" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -312,7 +330,6 @@
         android:layout_marginTop="@dimen/dp12"
         android:background="@drawable/insight_button"
         android:padding="@dimen/dp12" />
-
 
 
 </RelativeLayout>

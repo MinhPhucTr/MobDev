@@ -9,6 +9,8 @@ public class Value {
     private Wind wind;
     @SerializedName("coord")
     private Coord coord;
+    @SerializedName("name")
+    private String name;
 
     public Coord getCoord() {
         return coord;
@@ -32,5 +34,13 @@ public class Value {
 
     public void setWind(Wind wind) {
         this.wind = wind;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }
