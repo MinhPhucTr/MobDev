@@ -1,6 +1,7 @@
 package vn.uit.project.FragmentComponent;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -30,6 +31,7 @@ import org.osmdroid.views.overlay.ItemizedOverlayWithFocus;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.OverlayItem;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +46,8 @@ import vn.uit.project.AssetComponent.Attributes;
 import vn.uit.project.AssetComponent.Coord;
 import vn.uit.project.AssetComponent.Value;
 import vn.uit.project.AssetComponent.WeatherData;
+import vn.uit.project.DeviceInfoActivity;
+import vn.uit.project.HomeActivity;
 import vn.uit.project.MainActivity;
 import vn.uit.project.MapComponent.CustomInfo;
 import vn.uit.project.MapComponent.Default;
@@ -58,11 +62,13 @@ public class MapFragment extends Fragment {
     List<Asset> listAsset = new ArrayList<>();
     Thread mThread;
     TextView texTemp, texAir, texHumidity;
+    Button butViewMore;
+    Context ctx;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Context ctx = getContext();
+        ctx = getContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
         View view = inflater.inflate(R.layout.activity_map, container, false);
         Bundle mBundle = this.getArguments();
@@ -74,6 +80,7 @@ public class MapFragment extends Fragment {
 
     private void initial(View view)
     {
+        butViewMore = view.findViewById(R.id.butViewMore);
         texTemp = view.findViewById(R.id.texTemp);
         texAir = view.findViewById(R.id.texAir);
         texHumidity = view.findViewById(R.id.texHumidity);
@@ -144,6 +151,15 @@ public class MapFragment extends Fragment {
                         .getValue().getWind().getSpeed()));
                 texHumidity.setText(String.format("%s g.m³", asset.getAttributes().getWeatherData()
                         .getValue().getMain().getHumidity()));
+
+                if(marker.isInfoWindowOpen()){
+                    butViewMore.setVisibility(View.VISIBLE);
+                    ViewMoreButtonClick();
+                }
+                else{
+                    butViewMore.setVisibility(View.INVISIBLE);
+                }
+
                 return false;
             }
         });
@@ -170,5 +186,17 @@ public class MapFragment extends Fragment {
         if(mAsset.getAttributes().getLocation().getValue() != null)
             return false;
         return true;
+    }
+
+
+    private void ViewMoreButtonClick(){
+        butViewMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*Intent assetDetail = new Intent(getActivity(), DeviceInfoActivity.class);
+                startActivity(assetDetail);*/
+                Toast.makeText(ctx, "View more", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

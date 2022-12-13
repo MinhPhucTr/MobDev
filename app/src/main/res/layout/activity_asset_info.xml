@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/neutral6"
+    tools:context=".DeviceInfoActivity">
+
+    <ImageView
+        android:id="@+id/imaBackground"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:background="@drawable/top_background" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/butMenu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp20"
+        android:background="@drawable/menu_button" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/butSearch"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginEnd="@dimen/dp16"
+        android:background="@drawable/search_button" />
+
+    <TextView
+        android:id="@+id/texDeviceInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32.5dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/device_information"
+        android:textColor="@color/neutral6"
+        android:textSize="@dimen/sp20" />
+
+    <TextView
+        android:id="@+id/texAssetName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imaBackground"
+        android:text="@string/asset_name"
+        android:textSize="@dimen/sp20"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp12"
+        android:textColor="@color/neutral2"
+        />
+
+    <TextView
+        android:id="@+id/texPosition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/texAssetName"
+        android:text="@string/location"
+        android:textSize="@dimen/sp16"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp8"
+        android:textColor="@color/neutral2"
+        android:gravity="center"
+        android:drawableStart="@drawable/ic_outline_location_on_24"
+        android:drawablePadding="@dimen/dp4"
+        />
+    <TextView
+        android:id="@+id/texTempInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/texPosition"
+        android:text="@string/temperature"
+        android:textSize="@dimen/sp16"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp4"
+        android:textColor="@color/neutral2"
+        android:drawableStart="@drawable/device_thermostat_outlined"
+        android:drawablePadding="@dimen/dp4"
+        />
+
+    <TextView
+        android:id="@+id/texAirInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/texTempInfo"
+        android:text="@string/air"
+        android:textSize="@dimen/sp16"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp4"
+        android:textColor="@color/neutral2"
+        android:drawableStart="@drawable/air_outlined"
+        android:drawablePadding="@dimen/dp4"
+        />
+
+    <TextView
+        android:id="@+id/texHumidityInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/texAirInfo"
+        android:text="@string/humidity"
+        android:textSize="@dimen/sp16"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp4"
+        android:textColor="@color/neutral2"
+        android:drawableStart="@drawable/water_drop_outlined"
+        android:drawablePadding="@dimen/dp4"
+        />
+
+    <TextView
+        android:id="@+id/texArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/texHumidityInfo"
+        android:text="@string/area_name"
+        android:textSize="@dimen/sp16"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp4"
+        android:textColor="@color/neutral2"
+        android:drawableStart="@drawable/ic_outline_location_city_24"
+        android:drawablePadding="@dimen/dp4"
+/>
+    <TextView
+        android:id="@+id/texLastUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/texArea"
+        android:text="@string/last_update"
+        android:textSize="@dimen/sp16"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp4"
+        android:textColor="@color/neutral2"
+        android:drawableStart="@drawable/ic_baseline_update_24"
+        android:drawablePadding="@dimen/dp4"
+        />
+
+</RelativeLayout>
