@@ -62,28 +62,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/texAssetName"
-        android:text="@string/location"
-        android:textSize="@dimen/sp16"
         android:layout_marginStart="@dimen/dp16"
         android:layout_marginTop="@dimen/dp8"
-        android:textColor="@color/neutral2"
-        android:gravity="center"
         android:drawableStart="@drawable/ic_outline_location_on_24"
         android:drawablePadding="@dimen/dp4"
-        />
+        android:gravity="center"
+        android:text="@string/location"
+        android:textColor="@color/neutral2"
+        android:textSize="@dimen/sp16" />
+
     <TextView
         android:id="@+id/texTempInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/texPosition"
-        android:text="@string/temperature"
-        android:textSize="@dimen/sp16"
         android:layout_marginStart="@dimen/dp16"
         android:layout_marginTop="@dimen/dp4"
-        android:textColor="@color/neutral2"
         android:drawableStart="@drawable/device_thermostat_outlined"
         android:drawablePadding="@dimen/dp4"
-        />
+        android:text="@string/temperature"
+        android:textColor="@color/neutral2"
+        android:textSize="@dimen/sp16" />
 
     <TextView
         android:id="@+id/texAirInfo"
@@ -104,40 +103,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/texAirInfo"
-        android:text="@string/humidity"
-        android:textSize="@dimen/sp16"
         android:layout_marginStart="@dimen/dp16"
         android:layout_marginTop="@dimen/dp4"
-        android:textColor="@color/neutral2"
         android:drawableStart="@drawable/water_drop_outlined"
         android:drawablePadding="@dimen/dp4"
-        />
+        android:text="@string/humidity"
+        android:textColor="@color/neutral2"
+        android:textSize="@dimen/sp16" />
 
     <TextView
         android:id="@+id/texArea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/texHumidityInfo"
-        android:text="@string/area_name"
-        android:textSize="@dimen/sp16"
         android:layout_marginStart="@dimen/dp16"
         android:layout_marginTop="@dimen/dp4"
-        android:textColor="@color/neutral2"
         android:drawableStart="@drawable/ic_outline_location_city_24"
         android:drawablePadding="@dimen/dp4"
-/>
+        android:text="@string/area_name"
+        android:textColor="@color/neutral2"
+        android:textSize="@dimen/sp16" />
+
     <TextView
         android:id="@+id/texLastUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/texArea"
-        android:text="@string/last_update"
-        android:textSize="@dimen/sp16"
         android:layout_marginStart="@dimen/dp16"
         android:layout_marginTop="@dimen/dp4"
-        android:textColor="@color/neutral2"
         android:drawableStart="@drawable/ic_baseline_update_24"
         android:drawablePadding="@dimen/dp4"
-        />
+        android:text="@string/last_update"
+        android:textColor="@color/neutral2"
+        android:textSize="@dimen/sp16" />
 
 </RelativeLayout>

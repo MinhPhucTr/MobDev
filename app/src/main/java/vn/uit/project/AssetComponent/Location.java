@@ -2,7 +2,9 @@ package vn.uit.project.AssetComponent;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
     @SerializedName("value")
     private ValueLocation value;
 

@@ -2,7 +2,9 @@ package vn.uit.project.AssetComponent;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Attributes {
+import java.io.Serializable;
+
+public class Attributes implements Serializable {
     @SerializedName("weatherData")
     private WeatherData weatherData;
     @SerializedName("location")

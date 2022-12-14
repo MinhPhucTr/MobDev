@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -29,7 +30,7 @@ import vn.uit.project.FragmentComponent.MapFragment;
 
 public class HomeActivity extends FragmentActivity {
     BottomNavigationView botNav;
-    List<Asset> listAsset;
+    List<Asset> listAsset = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +75,6 @@ public class HomeActivity extends FragmentActivity {
         callAPICurrentAsset.enqueue(new Callback<List<Asset>>() {
             @Override
             public void onResponse(Call<List<Asset>> call, Response<List<Asset>> response) {
-               listAsset = new ArrayList<>();
                 for(Asset mAsset : response.body())
                 {
                     if(!isAssetLocationNull(mAsset)) {

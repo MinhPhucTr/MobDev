@@ -2,7 +2,9 @@ package vn.uit.project.AssetComponent;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Value {
+import java.io.Serializable;
+
+public class Value implements Serializable {
     @SerializedName("main")
     private Main main;
     @SerializedName("wind")

@@ -2,7 +2,9 @@ package vn.uit.project.AssetComponent;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ValueLocation {
+import java.io.Serializable;
+
+public class ValueLocation implements Serializable {
     @SerializedName("coordinates")
     private double[] coordinates;
 

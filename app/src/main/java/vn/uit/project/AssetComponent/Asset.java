@@ -1,10 +1,13 @@
 package vn.uit.project.AssetComponent;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Asset implements Serializable {
+public  class Asset implements Serializable {
     @SerializedName("id")
     private String id;
     @SerializedName("name")
@@ -35,4 +38,5 @@ public class Asset implements Serializable {
     public void setAttributes(Attributes attributes) {
         this.attributes = attributes;
     }
+
 }

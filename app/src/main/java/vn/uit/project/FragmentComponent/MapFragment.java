@@ -110,6 +110,7 @@ public class MapFragment extends Fragment {
                         mapView.zoomToBoundingBox(new BoundingBox(mBounds[3], mBounds[2], mBounds[1], mBounds[0]), true);
                         mapView.setMaxZoomLevel((double) maxZoom);
                         mapView.setMinZoomLevel((double) minZoom);
+                        mapView.setScrollableAreaLimitDouble(new BoundingBox(mBounds[3], mBounds[2], mBounds[1], mBounds[0]));
                         for(Asset mAsset : listAsset)
                         {
                             addMarker(mAsset);
@@ -193,8 +194,8 @@ public class MapFragment extends Fragment {
         butViewMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent assetDetail = new Intent(getActivity(), DeviceInfoActivity.class);
-                startActivity(assetDetail);*/
+                Intent assetDetail = new Intent(getContext(), DeviceInfoActivity.class);
+                startActivity(assetDetail);
                 Toast.makeText(ctx, "View more", Toast.LENGTH_SHORT).show();
             }
         });
