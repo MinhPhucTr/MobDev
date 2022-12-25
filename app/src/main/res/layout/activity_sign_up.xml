@@ -40,9 +40,10 @@
             android:drawableStart="@drawable/user"
             android:drawablePadding="@dimen/dp8"
             android:hint="@string/username"
-            android:textColorHint="@color/neutral3"
             android:inputType="text"
+            android:textColor="@color/neutral1"
             android:padding="@dimen/dp16"
+            android:textColorHint="@color/neutral3"
             android:textSize="@dimen/sp16" />
 
         <EditText
@@ -52,14 +53,15 @@
             android:layout_below="@id/ediUsername"
             android:layout_marginTop="@dimen/dp20"
             android:autofillHints="password"
+            android:textColor="@color/neutral1"
             android:background="@drawable/custom_edi"
-            android:textColorHint="@color/neutral3"
             android:drawableStart="@drawable/key"
             android:drawablePadding="@dimen/dp8"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:letterSpacing="0.0"
             android:padding="@dimen/dp16"
+            android:textColorHint="@color/neutral3"
             android:textSize="@dimen/sp16" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -84,6 +86,7 @@
             android:layout_marginStart="@dimen/dp110"
             android:layout_marginTop="@dimen/dp5"
             android:text="@string/had_account"
+            android:textColor="@color/neutral3"
             android:textSize="@dimen/sp14" />
 
         <TextView

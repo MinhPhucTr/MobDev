@@ -6,32 +6,23 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.ListFragment;
 
-import org.osmdroid.api.IGeoPoint;
-import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.util.BoundingBox;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
-import org.osmdroid.views.overlay.ItemizedIconOverlay;
-import org.osmdroid.views.overlay.ItemizedOverlayWithFocus;
 import org.osmdroid.views.overlay.Marker;
-import org.osmdroid.views.overlay.OverlayItem;
 
-import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,17 +33,9 @@ import retrofit2.Response;
 import vn.uit.project.APIComponent.ApiClient;
 import vn.uit.project.APIComponent.ApiInterface;
 import vn.uit.project.AssetComponent.Asset;
-import vn.uit.project.AssetComponent.Attributes;
-import vn.uit.project.AssetComponent.Coord;
-import vn.uit.project.AssetComponent.Value;
-import vn.uit.project.AssetComponent.WeatherData;
 import vn.uit.project.DeviceInfoActivity;
-import vn.uit.project.HomeActivity;
-import vn.uit.project.MainActivity;
 import vn.uit.project.MapComponent.CustomInfo;
-import vn.uit.project.MapComponent.Default;
 import vn.uit.project.MapComponent.Map;
-import vn.uit.project.MapComponent.Option;
 import vn.uit.project.R;
 
 public class MapFragment extends Fragment {

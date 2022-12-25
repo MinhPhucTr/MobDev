@@ -9,23 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import vn.uit.project.APIComponent.ApiClient;
-import vn.uit.project.APIComponent.ApiInterface;
 import vn.uit.project.R;
 
-public class DeviceFragment extends Fragment {
-    ApiInterface apiInterface;
+public class PersonalFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_devices, container, false);
-        initial(view);
+        View view = inflater.inflate(R.layout.activity_personal, container, false);
         return view;
     }
-
-    private void initial(View view)
-    {
-        apiInterface = ApiClient.getClient().create(ApiInterface.class);
-    }
-
 }

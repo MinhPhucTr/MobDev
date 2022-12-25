@@ -1,4 +1,4 @@
-package vn.uit.project;
+package vn.uit.project.Database;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -79,36 +79,5 @@ public class Database extends SQLiteOpenHelper {
     public void deleteTable() {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         onUpgrade(sqLiteDatabase, 1, 1);
-    }
-
-    public void addColumn() {
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        sqLiteDatabase.execSQL("ALTER TABLE " + TABLE_ACCOUNTS + " ADD COLUMN " + KEY_TEM + " TEXT");
-    }
-
-    public void updateTempByDate(String username, String temp_by_date) {
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(KEY_TEM, temp_by_date);
-        sqLiteDatabase.update(TABLE_ACCOUNTS, contentValues, KEY_USERNAME + " = '" + username + "'", null);
-    }
-
-    @SuppressLint("Range")
-    public String getTempByDate(String username) {
-        String query = "SELECT * FROM " + TABLE_ACCOUNTS;
-        String tempByDate = "";
-        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        Cursor mCursor = null;
-        if (sqLiteDatabase != null) {
-            mCursor = sqLiteDatabase.rawQuery(query, null);
-        }
-        while (mCursor.moveToNext()) {
-            String usernameRoot = mCursor.getString(mCursor.getColumnIndex(KEY_USERNAME));
-            if (username.equals(usernameRoot)) {
-                tempByDate = mCursor.getString(mCursor.getColumnIndex(KEY_TEM));
-                break;
-            }
-        }
-        return tempByDate;
     }
 }

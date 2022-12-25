@@ -89,14 +89,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/texTempInfo"
-        android:text="@string/air"
-        android:textSize="@dimen/sp16"
         android:layout_marginStart="@dimen/dp16"
         android:layout_marginTop="@dimen/dp4"
-        android:textColor="@color/neutral2"
         android:drawableStart="@drawable/air_outlined"
         android:drawablePadding="@dimen/dp4"
-        />
+        android:text="@string/air"
+        android:textColor="@color/neutral2"
+        android:textSize="@dimen/sp16" />
 
     <TextView
         android:id="@+id/texHumidityInfo"

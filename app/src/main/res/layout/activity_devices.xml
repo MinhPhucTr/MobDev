@@ -64,6 +64,7 @@
             android:layout_alignParentTop="true"
             android:fontFamily="@font/roboto"
             android:text="@string/device_added"
+            android:textColor="@color/neutral3"
             android:textSize="@dimen/sp20" />
 
         <TextView

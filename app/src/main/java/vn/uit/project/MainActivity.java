@@ -1,18 +1,15 @@
 package vn.uit.project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import vn.uit.project.Database.Database;
 
 public class MainActivity extends Activity {
     EditText ediUserName, ediPassword;
