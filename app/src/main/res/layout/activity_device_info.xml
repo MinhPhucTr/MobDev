@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/neutral6"
-    tools:context=".DeviceInfoActivity">
+    android:background="@color/neutral6">
 
     <ImageView
         android:id="@+id/imaBackground"
@@ -14,14 +13,14 @@
         android:background="@drawable/top_background" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/butMenu"
+        android:id="@+id/butBack"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="@dimen/dp16"
         android:layout_marginTop="@dimen/dp20"
-        android:background="@drawable/menu_button" />
+        android:background="@drawable/back_button" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/butSearch"
@@ -46,16 +45,16 @@
         android:textSize="@dimen/sp20" />
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/texAssetName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imaBackground"
-        android:text="@string/asset_name"
-        android:textSize="@dimen/sp20"
         android:layout_marginStart="@dimen/dp16"
         android:layout_marginTop="@dimen/dp12"
+        android:text="@string/asset_name"
         android:textColor="@color/neutral2"
-        />
+        android:textSize="@dimen/sp20" />
 
     <TextView
         android:id="@+id/texPosition"

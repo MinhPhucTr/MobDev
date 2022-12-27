@@ -1,14 +1,17 @@
 package vn.uit.project.MapComponent;
 
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
+import org.osmdroid.views.overlay.infowindow.InfoWindow;
 import org.osmdroid.views.overlay.infowindow.MarkerInfoWindow;
 
 import vn.uit.project.R;
 
-public class CustomInfo extends MarkerInfoWindow {
+public class CustomInfo extends InfoWindow {
     /**
      * layout that must contain these ids: bubble_title,bubble_description,
      *                    bubble_subdescription, bubble_image
@@ -18,6 +21,11 @@ public class CustomInfo extends MarkerInfoWindow {
     public CustomInfo(MapView mapView) {
         super(R.layout.info_marker, mapView);
         this.mapView = mapView;
+    }
+
+    @Override
+    public void setRelatedObject(Object relatedObject) {
+        super.setRelatedObject(relatedObject);
     }
 
     @Override
@@ -37,6 +45,8 @@ public class CustomInfo extends MarkerInfoWindow {
 
     @Override
     public void onClose() {
-        super.onClose();
+
     }
+
+
 }
