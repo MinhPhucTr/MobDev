@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fillViewport="true"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
         android:background="@color/neutral6">
 
         <ImageView
@@ -49,142 +44,142 @@
             android:textSize="@dimen/sp20" />
 
         <!--    Main board-->
-        <RelativeLayout
-            android:id="@+id/MainBoard"
-            android:layout_width="match_parent"
+    <RelativeLayout
+        android:id="@+id/MainBoard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/butMenu"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp16"
+        android:layout_marginEnd="@dimen/dp16"
+        android:layout_marginBottom="@dimen/dp16"
+        android:background="@drawable/main_board"
+        android:elevation="1dp"
+        android:padding="@dimen/dp16"
+        android:translationZ="16dp">
+
+        <TextView
+            android:id="@+id/texTotalDevice"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/butMenu"
-            android:layout_marginStart="@dimen/dp16"
-            android:layout_marginTop="@dimen/dp16"
-            android:layout_marginEnd="@dimen/dp16"
-            android:layout_marginBottom="@dimen/dp16"
-            android:background="@drawable/main_board"
-            android:elevation="1dp"
-            android:padding="@dimen/dp16"
-            android:translationZ="16dp">
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/roboto"
+            android:text="@string/device_added"
+            android:textColor="@color/neutral3"
+            android:textSize="@dimen/sp20" />
 
-            <TextView
-                android:id="@+id/texTotalDevice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:fontFamily="@font/roboto"
-                android:text="@string/device_added"
-                android:textColor="@color/neutral3"
-                android:textSize="@dimen/sp20" />
+        <TextView
+            android:id="@+id/texNumberic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texTotalDevice"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/neutral2"
+            android:textSize="@dimen/sp24" />
 
-            <TextView
-                android:id="@+id/texNumberic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/texTotalDevice"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/neutral2"
-                android:textSize="@dimen/sp24" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/butAddDevice"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp2"
+            android:background="@drawable/add_button" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/butAddDevice"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="@dimen/dp2"
-                android:background="@drawable/add_button" />
+        <View
+            android:id="@+id/Divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/butAddDevice"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/dp8"
+            android:background="@color/neutral3" />
 
-            <View
-                android:id="@+id/Divider"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/butAddDevice"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="@dimen/dp8"
-                android:background="@color/neutral3" />
+        <TextView
+            android:id="@+id/texApplianceList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Divider"
+            android:layout_alignTop="@id/Divider"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/dp12"
+            android:letterSpacing="0.01"
+            android:text="@string/weather_detail"
+            android:textColor="@color/neutral3"
+            android:textSize="@dimen/sp16" />
 
-            <TextView
-                android:id="@+id/texApplianceList"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Divider"
-                android:layout_alignTop="@id/Divider"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="@dimen/dp12"
-                android:letterSpacing="0.01"
-                android:text="@string/location_detail"
-                android:textColor="@color/neutral3"
-                android:textSize="@dimen/sp16" />
+        <TextView
+            android:id="@+id/texTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texApplianceList"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/dp8"
+            android:drawableStart="@drawable/device_thermostat_outlined"
+            android:drawablePadding="@dimen/dp4"
+            android:text="@string/temperature"
+            android:textColor="@color/neutral2"
+            android:textSize="@dimen/sp14" />
 
-            <TextView
-                android:id="@+id/texTemp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/texApplianceList"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="@dimen/dp8"
-                android:drawableStart="@drawable/outline_location"
-                android:drawablePadding="@dimen/dp4"
-                android:text="@string/location"
-                android:textColor="@color/neutral2"
-                android:textSize="@dimen/sp14" />
+        <TextView
+            android:id="@+id/texAir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texApplianceList"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dp8"
+            android:drawableStart="@drawable/water_drop_outlined"
+            android:drawablePadding="@dimen/dp4"
+            android:text="@string/humidity"
+            android:textColor="@color/neutral2"
+            android:textSize="@dimen/sp14" />
 
-            <TextView
-                android:id="@+id/texAir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/texApplianceList"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="@dimen/dp8"
-                android:drawableStart="@drawable/outline_location"
-                android:drawablePadding="@dimen/dp4"
-                android:text="@string/location"
-                android:textColor="@color/neutral2"
-                android:textSize="@dimen/sp14" />
+        <TextView
+            android:id="@+id/texHumidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texApplianceList"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp8"
+            android:drawableStart="@drawable/air_outlined"
+            android:drawablePadding="@dimen/dp4"
+            android:text="@string/air_speed"
+            android:textColor="@color/neutral2"
+            android:textSize="@dimen/sp14" />
 
-            <TextView
-                android:id="@+id/texHumidity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/texApplianceList"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="@dimen/dp8"
-                android:drawableStart="@drawable/outline_location"
-                android:drawablePadding="@dimen/dp4"
-                android:text="@string/location"
-                android:textColor="@color/neutral2"
-                android:textSize="@dimen/sp14" />
+        <TextView
+            android:id="@+id/texTotalLocation1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texTemp"
+            android:layout_alignStart="@id/texTemp"
+            android:paddingStart="@dimen/dp24"
 
-            <TextView
-                android:id="@+id/texTotalLocation1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/texTemp"
-                android:layout_alignStart="@id/texTemp"
-                android:paddingStart="@dimen/dp24"
+            android:textColor="@color/neutral1"
+            android:textSize="@dimen/sp16" />
 
-                android:textColor="@color/neutral1"
-                android:textSize="@dimen/sp16" />
+        <TextView
+            android:id="@+id/texTotalLocation2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texAir"
+            android:layout_alignBaseline="@id/texTotalLocation1"
+            android:layout_alignStart="@id/texAir"
+            android:paddingStart="@dimen/dp24"
+            android:textColor="@color/neutral1"
+            android:textSize="@dimen/sp16" />
 
-            <TextView
-                android:id="@+id/texTotalLocation2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/texAir"
-                android:layout_alignBaseline="@id/texTotalLocation1"
-                android:layout_alignStart="@id/texAir"
-                android:paddingStart="@dimen/dp24"
-                android:textColor="@color/neutral1"
-                android:textSize="@dimen/sp16" />
+        <TextView
+            android:id="@+id/texTotalLocation3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texAir"
+            android:layout_alignStart="@id/texHumidity"
+            android:paddingStart="@dimen/dp24"
+            android:textColor="@color/neutral1"
+            android:textSize="@dimen/sp16" />
 
-            <TextView
-                android:id="@+id/texTotalLocation3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/texAir"
-                android:layout_alignStart="@id/texHumidity"
-                android:paddingStart="@dimen/dp24"
-                android:textColor="@color/neutral1"
-                android:textSize="@dimen/sp16" />
-
-        </RelativeLayout>
+    </RelativeLayout>
 
         <!--    Weekly - Monthly - Annual-->
         <TableLayout
@@ -241,218 +236,103 @@
 
         </TableLayout>
 
-        <TextView
-            android:id="@+id/texAnalysis"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/layoutAnalys"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/RoutineBar"
-            android:layout_marginStart="@dimen/dp16"
-            android:layout_marginTop="@dimen/dp4"
-            android:layout_marginBottom="@dimen/dp12"
-            android:text="@string/analysis"
-            android:textColor="@color/neutral1"
-            android:textSize="@dimen/sp20" />
+            android:layout_marginHorizontal="@dimen/dp16"
+            android:padding="@dimen/dp8">
+
+            <TextView
+                android:id="@+id/texAnalysis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp4"
+                android:layout_marginBottom="@dimen/dp12"
+                android:text="@string/analysis"
+                android:textColor="@color/neutral1"
+                android:textSize="@dimen/sp20" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_toEndOf="@id/texAnalysis"
+                android:background="@drawable/custom_spinner" />
+        </RelativeLayout>
+
+
+
 
         <!--   Analysis -->
-        <LinearLayout
-            android:id="@+id/ChartTemp"
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/ChartTemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutAnalys"
+        android:layout_marginHorizontal="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp12"
+        android:background="@drawable/main_board"
+        android:elevation="@dimen/dp2"
+        android:orientation="vertical"
+        android:padding="@dimen/dp8"
+        android:translationZ="@dimen/dp12">
+
+        <TextView
+            android:id="@+id/texTemperature"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/texAnalysis"
-            android:layout_marginHorizontal="@dimen/dp16"
-            android:background="@drawable/main_board"
-            android:elevation="@dimen/dp2"
-            android:orientation="vertical"
-            android:padding="@dimen/dp8"
-            android:translationZ="@dimen/dp12">
+            android:layout_below="@id/texApplianceList"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/dp8"
+            android:layout_marginBottom="@dimen/dp8"
+            android:drawableStart="@drawable/device_thermostat_outlined"
+            android:drawablePadding="@dimen/dp4"
+            android:text="@string/temperature"
+            android:textColor="@color/neutral3"
+            android:textSize="@dimen/sp14" />
 
-            <TextView
-                android:id="@+id/texTemperature"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/texApplianceList"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="@dimen/dp8"
-                android:layout_marginBottom="@dimen/dp8"
-                android:drawableStart="@drawable/device_thermostat_outlined"
-                android:drawablePadding="@dimen/dp4"
-                android:text="@string/temperature"
-                android:textColor="@color/neutral3"
-                android:textSize="@dimen/sp14" />
-
-            <!--        Chart-->
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart1"
-                android:layout_width="match_parent"
-                android:layout_height="120dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="4">
-
-                <TextView
-                    android:id="@+id/texAverageHome"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dp12"
-                    android:text="@string/average"
-                    android:textColor="@color/neutral1"
-                    android:textSize="@dimen/sp14" />
-
-                <TextView
-                    android:id="@+id/texAverageValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dp12"
-                    android:layout_weight="4"
-                    android:textColor="@color/neutral1"
-                    android:textSize="@dimen/sp14" />
-
-                <TextView
-                    android:id="@+id/texLastUpdated"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dp12"
-                    android:textColor="@color/neutral1"
-                    android:textSize="@dimen/sp14" />
-            </LinearLayout>
-        </LinearLayout>
+        <!--        Chart-->
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp190" />
 
         <LinearLayout
-            android:id="@+id/ChartHumidity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ChartTemp"
-            android:layout_marginHorizontal="@dimen/dp16"
-            android:background="@drawable/main_board"
-            android:elevation="@dimen/dp2"
-            android:layout_marginTop="@dimen/dp12"
-            android:orientation="vertical"
-            android:padding="@dimen/dp8"
-            android:translationZ="@dimen/dp12">
+            android:orientation="horizontal"
+            android:weightSum="4">
 
             <TextView
-                android:id="@+id/texHumidityChart"
+                android:id="@+id/texAverageHome"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/texApplianceList"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="@dimen/dp8"
-                android:layout_marginBottom="@dimen/dp8"
-                android:drawableStart="@drawable/water_drop_outlined"
-                android:drawablePadding="@dimen/dp4"
-                android:text="@string/humidity"
-                android:textColor="@color/neutral3"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="@string/average"
+                android:textColor="@color/neutral1"
                 android:textSize="@dimen/sp14" />
-
-            <!--        Chart-->
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart2"
-                android:layout_width="match_parent"
-                android:layout_height="120dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="4">
-
-                <TextView
-                    android:id="@+id/texAverageHome2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dp12"
-                    android:text="@string/average"
-                    android:textColor="@color/neutral1"
-                    android:textSize="@dimen/sp14" />
-
-                <TextView
-                    android:id="@+id/texAverageValue2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dp12"
-                    android:layout_weight="4"
-                    android:textColor="@color/neutral1"
-                    android:textSize="@dimen/sp14" />
-
-                <TextView
-                    android:id="@+id/texLastUpdated2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dp12"
-                    android:textColor="@color/neutral1"
-                    android:textSize="@dimen/sp14" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ChartAir"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ChartHumidity"
-            android:layout_marginHorizontal="@dimen/dp16"
-            android:background="@drawable/main_board"
-            android:elevation="@dimen/dp2"
-            android:orientation="vertical"
-            android:padding="@dimen/dp8"
-            android:layout_marginTop="@dimen/dp12"
-            android:layout_marginBottom="@dimen/dp5"
-            android:translationZ="@dimen/dp12">
 
             <TextView
-                android:id="@+id/texAirChart"
+                android:id="@+id/texAverageValue"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/texApplianceList"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="@dimen/dp8"
-                android:layout_marginBottom="@dimen/dp8"
-                android:drawableStart="@drawable/air_outlined"
-                android:drawablePadding="@dimen/dp4"
-                android:text="@string/air"
-                android:textColor="@color/neutral3"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp12"
+                android:layout_weight="4"
+                android:textColor="@color/neutral1"
                 android:textSize="@dimen/sp14" />
 
-            <!--        Chart-->
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart3"
-                android:layout_width="match_parent"
-                android:layout_height="120dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="4">
-
-                <TextView
-                    android:id="@+id/texAverageHome3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dp12"
-                    android:text="@string/average"
-                    android:textColor="@color/neutral1"
-                    android:textSize="@dimen/sp14" />
-
-                <TextView
-                    android:id="@+id/texAverageValue3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dp12"
-                    android:layout_weight="4"
-                    android:textColor="@color/neutral1"
-                    android:textSize="@dimen/sp14" />
-
-                <TextView
-                    android:id="@+id/texLastUpdated3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dp12"
-                    android:textColor="@color/neutral1"
-                    android:textSize="@dimen/sp14" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/texLastUpdated"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp12"
+                android:textColor="@color/neutral1"
+                android:textSize="@dimen/sp14" />
         </LinearLayout>
+    </LinearLayout>
     </RelativeLayout>
-</ScrollView>

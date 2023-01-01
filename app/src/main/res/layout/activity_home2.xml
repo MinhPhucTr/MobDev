@@ -18,8 +18,8 @@
         app:menu="@menu/menu_bot_nav" />
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/frameLayout"
-        android:layout_above="@id/botNav"/>
+        android:layout_above="@id/botNav" />
 </RelativeLayout>

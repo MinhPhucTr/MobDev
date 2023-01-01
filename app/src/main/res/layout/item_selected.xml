@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/texItemSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/neutral1"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/dp10"
+        android:padding="@dimen/dp5"
+        android:textSize="@dimen/sp14"
+        android:text="None" />
+
+    <ImageView
+        android:id="@+id/imaSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/drop_down"
+        android:layout_alignParentEnd="true"
+        android:padding="@dimen/dp5"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/dp3"/>
+</RelativeLayout>

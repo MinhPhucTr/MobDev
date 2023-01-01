@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,21 +40,30 @@ import vn.uit.project.APIComponent.ApiInterface;
 import vn.uit.project.AssetComponent.Asset;
 import vn.uit.project.Database.WeatherDatabase;
 import vn.uit.project.R;
+import vn.uit.project.Spinner.SpinnerItem;
+import vn.uit.project.Spinner.SpinnerItemAdapter;
 import vn.uit.project.WeatherByDate.AirByDate;
-import vn.uit.project.WeatherByDate.HumByDate;
 import vn.uit.project.WeatherByDate.DataByDate;
+import vn.uit.project.WeatherByDate.HumByDate;
 
 public class HomeFragment extends Fragment {
-    TextView texTotalLocation1, texTotalLocation3, texTotalLocation2, texNumberic, texAverageValue1, texLastUpdated1, texAverageValue2, texLastUpdated2, texAverageValue3, texLastUpdated3;
+    TextView texTotalLocation1, texTotalLocation3, texTotalLocation2, texNumberic, texAverageValue1, texLastUpdated1,  texTemperature;
     ApiInterface apiInterface;
     Button butAddDevice;
-    LineChart chartTemp, chartHumidity, chartAir;
+    LineChart chartTemp;
+    Spinner spinner;
+    int choiceSpinner = 0;
     Gson gson;
     List<Asset> listAsset = new ArrayList<>();
     List<String> listAssetName = new ArrayList<>();
     List<DataByDate> listTemp = new ArrayList<>();
     List<DataByDate> listHumi = new ArrayList<>();
     List<DataByDate> listAir = new ArrayList<>();
+    List<DataByDate> listTempValue = new ArrayList<>();
+    List<DataByDate> listHumValue = new ArrayList<>();
+    List<DataByDate> listAirValue = new ArrayList<>();
+    List<SpinnerItem> listSpinnerItem = new ArrayList<>();
+    SpinnerItemAdapter adapter;
     Type typeTempByDate = new TypeToken<ArrayList<DataByDate>>() {
     }.getType();
     WeatherDatabase db;
@@ -67,6 +77,7 @@ public class HomeFragment extends Fragment {
         listAsset = (List<Asset>) mBundle.getSerializable("LISTASSET");
         initial(view);
         clickButtonAddDevice();
+        clickSpinner();
         return view;
     }
 
@@ -76,16 +87,17 @@ public class HomeFragment extends Fragment {
         texTotalLocation3 = view.findViewById(R.id.texTotalLocation3);
         texTotalLocation2 = view.findViewById(R.id.texTotalLocation2);
         texAverageValue1 = view.findViewById(R.id.texAverageValue);
-        texAverageValue2 = view.findViewById(R.id.texAverageValue2);
-        texAverageValue3 = view.findViewById(R.id.texAverageValue3);
+        texTemperature = view.findViewById(R.id.texTemperature);
         texNumberic = view.findViewById(R.id.texNumberic);
         texLastUpdated1 = view.findViewById(R.id.texLastUpdated);
-        texLastUpdated2 = view.findViewById(R.id.texLastUpdated2);
-        texLastUpdated3 = view.findViewById(R.id.texLastUpdated3);
         butAddDevice = view.findViewById(R.id.butAddDevice);
         chartTemp = view.findViewById(R.id.chart1);
-        chartHumidity = view.findViewById(R.id.chart2);
-        chartAir = view.findViewById(R.id.chart3);
+        spinner = view.findViewById(R.id.spinner);
+        spinner.setEnabled(false);
+        for(SpinnerItem spinnerItem : SpinnerItem.values())
+            listSpinnerItem.add(spinnerItem);
+        adapter = new SpinnerItemAdapter(getContext(), R.layout.item_selected, listSpinnerItem);
+        spinner.setAdapter(adapter);
 
         gson = new Gson();
 
@@ -119,12 +131,12 @@ public class HomeFragment extends Fragment {
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         Toast.makeText(getContext(), listAssetName.get(i), Toast.LENGTH_SHORT).show();
                         showWeatherDetails(listAssetName.get(i));
-                        List<DataByDate> listTempValue = getDataDetail(listAssetName.get(i), "temp");
-                        List<DataByDate> listHumValue = getDataDetail(listAssetName.get(i), "humidity");
-                        List<DataByDate> listAirValue = getDataDetail(listAssetName.get(i), "air");
+                         listTempValue = getDataDetail(listAssetName.get(i), "temp");
+                         listHumValue = getDataDetail(listAssetName.get(i), "humidity");
+                         listAirValue = getDataDetail(listAssetName.get(i), "air");
+                        spinner.setEnabled(true);
+                        spinner.setSelection(0);
                         setUpChart(chartTemp, listTempValue, "°C");
-                        setUpChart(chartHumidity, listHumValue, "g.m³");
-                        setUpChart(chartAir, listAirValue, "m/s");
                         mDialog.dismiss();
                     }
                 });
@@ -171,22 +183,25 @@ public class HomeFragment extends Fragment {
         String averageValue = String.format("%.2f", getAverage(listValue));
         if(label.equals("°C")) {
             lineDataSet = new LineDataSet(dataVals, "Temperature");
-            texLastUpdated1.setText("From: " + startDate + "\nTo:      " + lastDate);
-            texAverageValue1.setText(" " + averageValue + " " + label);
+            texTemperature.setText(getString(R.string.temperature));
+            texTemperature.setCompoundDrawablesRelativeWithIntrinsicBounds(getResources().getDrawable(R.drawable.device_thermostat_outlined, null), null, null, null);
         }
         else if(label.equals("g.m³")) {
             lineDataSet = new LineDataSet(dataVals, "Humidity");
-            texLastUpdated2.setText("From: " + startDate + "\nTo:      " + lastDate);
-            texAverageValue2.setText(" " + averageValue + " " + label);
+            texTemperature.setText(getString(R.string.humidity));
+            texTemperature.setCompoundDrawablesRelativeWithIntrinsicBounds(getResources().getDrawable(R.drawable.water_drop_outlined, null), null, null, null);
         }
         else {
             lineDataSet = new LineDataSet(dataVals, "Air");
-            texLastUpdated3.setText("From: " + startDate + "\nTo:      " + lastDate);
-            texAverageValue3.setText(" " + averageValue + " " + label);
+            texTemperature.setText(getString(R.string.air));
+            texTemperature.setCompoundDrawablesRelativeWithIntrinsicBounds(getResources().getDrawable(R.drawable.air_outlined, null), null, null, null);
         }
+        texLastUpdated1.setText("From: " + startDate + "\nTo:      " + lastDate);
+        texAverageValue1.setText(" " + averageValue + " " + label);
         lineDataSet.setValueTextSize(11);
-        lineDataSet.setLineWidth(3);
+        lineDataSet.setLineWidth(4);
         XAxis xAsis = chart.getXAxis();
+        xAsis.setTextSize((float)10);
         xAsis.setLabelCount(7, true);
         YAxis yAxisLeft = chart.getAxisLeft();
         YAxis yAxisRight = chart.getAxisRight();
@@ -280,5 +295,27 @@ public class HomeFragment extends Fragment {
             sum += d;
         sum /= listValue.size();
         return sum;
+    }
+
+    private void clickSpinner()
+    {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(listTempValue.size() > 0) {
+                    if (i == 0) {
+                        setUpChart(chartTemp, listTempValue, "°C");
+                    } else if (i == 1)
+                        setUpChart(chartTemp, listHumValue, "g.m³");
+                    else
+                        setUpChart(chartTemp, listAirValue, "m/s");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 }
