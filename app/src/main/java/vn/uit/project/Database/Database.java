@@ -19,6 +19,8 @@ public class Database extends SQLiteOpenHelper {
     private static final String KEY_USERNAME = "username";
     private static final String KEY_PASSWORD = "password";
     private static final String KEY_TEM = "temp_by_date";
+    private static final String KEY_NAME = "name";
+    private static final String KEY_AGE = "age";
 
     public Database(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,7 +32,8 @@ public class Database extends SQLiteOpenHelper {
         String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_ACCOUNTS
                 + " (" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + KEY_USERNAME + " TEXT, " + KEY_PASSWORD + " TEXT, "
-                + KEY_TEM + " TEXT);";
+                + KEY_TEM + " TEXT, " + KEY_AGE + " INTEGER, "
+                + KEY_NAME + " TEXT);";
         sqLiteDatabase.execSQL(CREATE_TABLE);
     }
 
@@ -79,5 +82,17 @@ public class Database extends SQLiteOpenHelper {
     public void deleteTable() {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         onUpgrade(sqLiteDatabase, 1, 1);
+    }
+
+    public Client getClient(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_ACCOUNTS, null, KEY_USERNAME + " = ?", new String[]{username}, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        Client client = new Client(cursor.getString(1), cursor.getString(2)
+                ,cursor.getString(4), cursor.getInt(5));
+        return client;
     }
 }

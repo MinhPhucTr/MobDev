@@ -1,5 +1,6 @@
 package vn.uit.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -61,10 +62,13 @@ public class HomeActivity extends FragmentActivity {
 
     private void replaceFragment(Fragment fragment)
     {
+        Intent intent = getIntent();
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Bundle mBundle = new Bundle();
         mBundle.putSerializable("LISTASSET", (Serializable) listAsset);
+        mBundle.putString("Client", intent.getStringExtra("USERNAME"));
         fragment.setArguments(mBundle);
         fragmentTransaction.replace(R.id.frameLayout, fragment);
         fragmentTransaction.commit();

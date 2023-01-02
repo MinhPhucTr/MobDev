@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
+
 import vn.uit.project.Database.Database;
 
 public class MainActivity extends Activity {
@@ -52,6 +54,7 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 String user = ediUserName.getText().toString().trim();
                 String pass = ediPassword.getText().toString().trim();
+
                 if (user.equals(""))
                     Toast.makeText(MainActivity.this, "Please enter Username!", Toast.LENGTH_SHORT).show();
                 else if(pass.equals(""))

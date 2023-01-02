@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:layout_width="match_parent"
@@ -49,145 +49,151 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
         android:src="@drawable/default_profile"
-        app:civ_border_width="2dp"
-        app:civ_border_color="@color/neutral3"
         android:translationZ="@dimen/dp8"
-        />
+        app:civ_border_color="@color/neutral3"
+        app:civ_border_width="2dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/butChangeAvatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change avatar"
-        android:textAllCaps="false"
-        android:background="@drawable/background_noset"
-        android:textSize="@dimen/sp16"
-        android:textStyle="normal"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/imaAvatar"
         android:layout_above="@id/texName"
-        android:layout_marginBottom="0dp"
-        android:textColor="@color/primary"
-        android:gravity="bottom|center_horizontal"
-        android:textAlignment="gravity"
+        android:layout_alignParentRight="true"
         android:layout_marginHorizontal="@dimen/dp16"
-        />
+        android:layout_marginBottom="0dp"
+        android:layout_toRightOf="@id/imaAvatar"
+        android:background="@drawable/background_noset"
+        android:gravity="bottom|center_horizontal"
+        android:text="Change avatar"
+        android:textAlignment="gravity"
+        android:textAllCaps="false"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/sp16"
+        android:textStyle="normal" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/butChangeInfo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp16"
+        android:background="@drawable/button"
         android:text="Change infomation"
         android:textAllCaps="false"
-        android:background="@drawable/background_noset"
+        android:layout_above="@id/butLogout"
+        android:textColor="@color/neutral6"
         android:textSize="@dimen/sp16"
-        android:textStyle="normal"
-        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp12"
+        android:paddingHorizontal="@dimen/dp12"
+        android:paddingVertical="@dimen/dp8"
+        android:textStyle="normal" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/butLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="0dp"
-        android:textColor="@color/primary"
-        android:gravity="center_vertical|center_horizontal"
-        android:textAlignment="gravity"
+        android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="@dimen/dp16"
-        />
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/danger_button"
+        android:text="LOG OUT"
+        android:textAllCaps="false"
+        android:textColor="@color/neutral6"
+        android:textSize="@dimen/sp16"
+        android:paddingHorizontal="@dimen/dp12"
+        android:paddingVertical="@dimen/dp8"
+        android:textStyle="normal" />
 
     <TextView
-        android:layout_marginTop="@dimen/dp16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imaAvatar"
         android:layout_marginHorizontal="32dp"
-        android:textStyle="bold"
+        android:layout_marginTop="@dimen/dp16"
         android:text="@string/name"
-        android:textSize="@dimen/sp16"
         android:textColor="@color/neutral2"
-        />
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold" />
 
     <TextView
-        android:layout_marginTop="@dimen/dp16"
         android:id="@+id/texName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/imaAvatar"
         android:layout_alignParentRight="true"
         android:layout_marginHorizontal="32dp"
-        android:layout_below="@id/imaAvatar"
-        android:textSize="@dimen/sp16"
-        android:textColor="@color/neutral2"
+        android:layout_marginTop="@dimen/dp16"
         android:text="Nguyen Van Vuong"
-        />
+        android:textColor="@color/neutral2"
+        android:textSize="@dimen/sp16" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/texName"
         android:layout_marginHorizontal="32dp"
-        android:textStyle="bold"
-        android:text="Username: "
-        android:textSize="@dimen/sp16"
-        android:textColor="@color/neutral2"
         android:layout_marginTop="@dimen/dp8"
-        />
+        android:text="Username: "
+        android:textColor="@color/neutral2"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold" />
 
     <TextView
-        android:layout_marginTop="@dimen/dp8"
         android:id="@+id/texUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/texName"
         android:layout_alignParentRight="true"
         android:layout_marginHorizontal="32dp"
-        android:layout_below="@id/texName"
-        android:textSize="@dimen/sp16"
-        android:textColor="@color/neutral2"
+        android:layout_marginTop="@dimen/dp8"
         android:text="user1"
-        />
+        android:textColor="@color/neutral2"
+        android:textSize="@dimen/sp16" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/texUsername"
         android:layout_marginHorizontal="32dp"
-        android:textStyle="bold"
-        android:text="@string/age"
-        android:textSize="@dimen/sp16"
-        android:textColor="@color/neutral2"
         android:layout_marginTop="@dimen/dp8"
-        />
+        android:text="@string/age"
+        android:textColor="@color/neutral2"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/texAge"
-        android:layout_marginTop="@dimen/dp8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/texUsername"
         android:layout_alignParentRight="true"
         android:layout_marginHorizontal="32dp"
-        android:layout_below="@id/texUsername"
-        android:textSize="@dimen/sp16"
-        android:textColor="@color/neutral2"
+        android:layout_marginTop="@dimen/dp8"
         android:text="20"
-        />
+        android:textColor="@color/neutral2"
+        android:textSize="@dimen/sp16" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/texAge"
         android:layout_marginHorizontal="32dp"
-        android:textStyle="bold"
-        android:text="Password: "
-        android:textSize="@dimen/sp16"
-        android:textColor="@color/neutral2"
         android:layout_marginTop="@dimen/dp8"
-        />
+        android:text="Password: "
+        android:textColor="@color/neutral2"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/texPassword"
-        android:layout_marginTop="@dimen/dp8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/texAge"
         android:layout_alignParentRight="true"
         android:layout_marginHorizontal="32dp"
-        android:layout_below="@id/texAge"
-        android:textSize="@dimen/sp16"
-        android:textColor="@color/neutral2"
+        android:layout_marginTop="@dimen/dp8"
         android:text="****"
-        />
+        android:textColor="@color/neutral2"
+        android:textSize="@dimen/sp16" />
 
 </RelativeLayout>
