@@ -75,16 +75,16 @@
         android:id="@+id/butChangeInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp16"
-        android:background="@drawable/button"
-        android:text="Change infomation"
-        android:textAllCaps="false"
         android:layout_above="@id/butLogout"
-        android:textColor="@color/neutral6"
-        android:textSize="@dimen/sp16"
+        android:layout_marginHorizontal="@dimen/dp16"
         android:layout_marginBottom="@dimen/dp12"
+        android:background="@drawable/button"
         android:paddingHorizontal="@dimen/dp12"
         android:paddingVertical="@dimen/dp8"
+        android:text="Change infomation"
+        android:textAllCaps="false"
+        android:textColor="@color/neutral6"
+        android:textSize="@dimen/sp16"
         android:textStyle="normal" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -96,12 +96,12 @@
         android:layout_marginHorizontal="@dimen/dp16"
         android:layout_marginBottom="24dp"
         android:background="@drawable/danger_button"
+        android:paddingHorizontal="@dimen/dp12"
+        android:paddingVertical="@dimen/dp8"
         android:text="LOG OUT"
         android:textAllCaps="false"
         android:textColor="@color/neutral6"
         android:textSize="@dimen/sp16"
-        android:paddingHorizontal="@dimen/dp12"
-        android:paddingVertical="@dimen/dp8"
         android:textStyle="normal" />
 
     <TextView

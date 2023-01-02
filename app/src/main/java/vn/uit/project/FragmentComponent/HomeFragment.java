@@ -52,7 +52,6 @@ public class HomeFragment extends Fragment {
     Button butAddDevice;
     LineChart chartTemp;
     Spinner spinner;
-    int choiceSpinner = 0;
     Gson gson;
     List<Asset> listAsset = new ArrayList<>();
     List<String> listAssetName = new ArrayList<>();

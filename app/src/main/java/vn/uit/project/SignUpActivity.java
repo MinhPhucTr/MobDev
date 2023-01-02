@@ -62,8 +62,7 @@ public class SignUpActivity extends Activity {
                     {
                         mDatabase.createAccount(name, pass);
                         Toast.makeText(SignUpActivity.this, "Create Account Successfully!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-                        startActivity(intent);
+                        finish();
                     }
                 }
             }

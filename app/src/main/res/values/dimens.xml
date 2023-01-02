@@ -8,6 +8,7 @@
     <dimen name="dp190">190dp</dimen>
     <dimen name="dp14">14dp</dimen>
     <dimen name="dp5">5dp</dimen>
+    <dimen name="dp450">450dp</dimen>
     <dimen name="dp10">10dp</dimen>
     <dimen name="dp50">50dp</dimen>
     <dimen name="sp35">35sp</dimen>

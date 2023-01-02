@@ -95,4 +95,29 @@ public class Database extends SQLiteOpenHelper {
                 ,cursor.getString(4), cursor.getInt(5));
         return client;
     }
+
+    @SuppressLint("Range")
+    public boolean isOldPasswordCorrect(String username, String oldPassword)
+    {
+        String passwordRoot = "";
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT " + KEY_PASSWORD + " FROM " + TABLE_ACCOUNTS + " WHERE " + KEY_USERNAME + " = '"+username+"'", null);
+        if(cursor.moveToFirst())
+            passwordRoot = cursor.getString(cursor.getColumnIndex(KEY_PASSWORD));
+        if(oldPassword.equals(passwordRoot))
+            return true;
+        return false;
+    }
+    public void changeInformation(Client client)
+    {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        String name = client.getName();
+        String username = client.getUsername().trim();
+        String password = client.getPassword();
+        contentValues.put(KEY_NAME, name);
+        contentValues.put(KEY_PASSWORD, password);
+        contentValues.put(KEY_AGE, client.getAge());
+        sqLiteDatabase.update(TABLE_ACCOUNTS, contentValues, KEY_USERNAME + "='"+username+"'", null);
+    }
 }

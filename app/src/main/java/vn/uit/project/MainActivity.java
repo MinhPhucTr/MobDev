@@ -9,8 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.Serializable;
-
 import vn.uit.project.Database.Database;
 
 public class MainActivity extends Activity {
@@ -65,6 +63,7 @@ public class MainActivity extends Activity {
 
                         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                         intent.putExtra("USERNAME", user);
+                        intent.putExtra("PASSWORD", pass);
                         startActivity(intent);
                     }
                     else

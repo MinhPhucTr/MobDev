@@ -10,8 +10,7 @@
         android:id="@+id/imaSymbolLV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/settings_applications"
-        />
+        android:src="@drawable/settings_applications" />
 
     <TextView
         android:id="@+id/texAssetNameLV"
@@ -29,26 +28,24 @@
         android:id="@+id/texLon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/texAssetNameLV"
+        android:layout_alignBaseline="@id/imaSymbolLV"
+        android:layout_marginLeft="@dimen/dp8"
         android:layout_toRightOf="@+id/imaSymbolLV"
         android:text="@string/asset_name"
+
         android:textColor="@color/neutral2"
-        android:layout_marginLeft="@dimen/dp8"
-        android:layout_below="@id/texAssetNameLV"
-        android:textSize="@dimen/sp16"
-        android:layout_alignBaseline="@id/imaSymbolLV"
-        />
+        android:textSize="@dimen/sp16" />
 
     <TextView
         android:id="@+id/texLat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/texLon"
+        android:layout_marginLeft="@dimen/dp8"
         android:layout_toRightOf="@+id/imaSymbolLV"
         android:text="@string/asset_name"
         android:textColor="@color/neutral2"
-        android:layout_alignBottom="@id/imaSymbolLV"
-        android:layout_marginLeft="@dimen/dp8"
-        android:textSize="@dimen/sp16"
-        android:layout_alignBaseline="@id/imaSymbolLV"
-        />
+        android:textSize="@dimen/sp16" />
 
 </RelativeLayout>

@@ -29,12 +29,18 @@
     <string name="devices">Devices</string>
     <string name="asset_information">Asset information</string>
     <string name="water">Water</string>
+    <string name="change">Change Information</string>
     <string name="processing">Processing...</string>
     <string name="had_account">Had Account ? </string>
     <string name="title">Title</string>
+    <string name="name2">Name</string>
+    <string name="old_pass">Old Password</string>
+    <string name="new_pass">New Password</string>
+    <string name="age2">Age</string>
     <string name="subtitle">Subtitle</string>
     <string name="location_detail">Location detail</string>
     <string name="weather_detail">Weather detail</string>
+    <string name="update">Update</string>
     <string name="location">Location</string>
     <string name="view_more">View more</string>
     <string name="device_information">Device Information</string>
@@ -43,5 +49,6 @@
     <string name="last_update">Last Update</string>
     <string name="air_speed">Air Speed</string>
     <string name="name">Name:</string>
+    <string name="back">Back</string>
     <string name="age">Age:</string>
 </resources>
