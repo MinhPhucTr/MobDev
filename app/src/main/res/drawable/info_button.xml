@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+            android:shape="rectangle"
+            >
+            <size
+                android:width="48dp"
+                android:height="48dp"
+                />
+            <corners
+                android:radius="@dimen/dp12"
+                />
+            <gradient
+                android:startColor="#1BBBD1"
+                android:endColor="#1AD8F2"
+                android:angle="45"
+                />
+        </shape>
+    </item>
+
+    <item
+        android:width="24dp"
+        android:height="24dp"
+        android:gravity="center"
+        android:drawable="@drawable/ic_baseline_info_24"
+        />
+</layer-list>

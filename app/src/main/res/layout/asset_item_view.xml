@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/dp8"
+    android:paddingBottom="@dimen/dp12"
+    android:paddingHorizontal="@dimen/dp8">
+
+    <ImageView
+        android:id="@+id/imaSymbolLV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/settings_applications"
+        />
+
+    <TextView
+        android:id="@+id/texAssetNameLV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imaSymbolLV"
+        android:text="@string/asset_name"
+        android:textColor="@color/neutral2"
+        android:layout_marginLeft="@dimen/dp8"
+        android:textSize="@dimen/sp24"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/texLon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imaSymbolLV"
+        android:text="@string/asset_name"
+        android:textColor="@color/neutral2"
+        android:layout_marginLeft="@dimen/dp8"
+        android:layout_below="@id/texAssetNameLV"
+        android:textSize="@dimen/sp16"
+        android:layout_alignBaseline="@id/imaSymbolLV"
+        />
+
+    <TextView
+        android:id="@+id/texLat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imaSymbolLV"
+        android:text="@string/asset_name"
+        android:textColor="@color/neutral2"
+        android:layout_alignBottom="@id/imaSymbolLV"
+        android:layout_marginLeft="@dimen/dp8"
+        android:textSize="@dimen/sp16"
+        android:layout_alignBaseline="@id/imaSymbolLV"
+        />
+
+</RelativeLayout>

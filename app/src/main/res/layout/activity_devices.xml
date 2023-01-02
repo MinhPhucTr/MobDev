@@ -54,7 +54,7 @@
         android:background="@drawable/main_board"
         android:elevation="1dp"
         android:padding="@dimen/dp16"
-        android:translationZ="16dp">
+        android:translationZ="12dp">
 
         <TextView
             android:id="@+id/texTotalDevice"
@@ -88,6 +88,7 @@
     </RelativeLayout>
 
     <ListView
+        android:id="@+id/lvAssetList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/MainBoard"

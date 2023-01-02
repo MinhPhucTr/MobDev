@@ -47,7 +47,7 @@ import vn.uit.project.WeatherByDate.DataByDate;
 import vn.uit.project.WeatherByDate.HumByDate;
 
 public class HomeFragment extends Fragment {
-    TextView texTotalLocation1, texTotalLocation3, texTotalLocation2, texNumberic, texAverageValue1, texLastUpdated1,  texTemperature;
+    TextView texTemp, texAir, texHumidity, texNumberic, texAverageValue1, texLastUpdated1,  texTemperature;
     ApiInterface apiInterface;
     Button butAddDevice;
     LineChart chartTemp;
@@ -76,16 +76,17 @@ public class HomeFragment extends Fragment {
         Bundle mBundle = this.getArguments();
         listAsset = (List<Asset>) mBundle.getSerializable("LISTASSET");
         initial(view);
-        clickButtonAddDevice();
+        clickButtonInfoDevice();
         clickSpinner();
+
         return view;
     }
 
     private void initial(View view) {
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        texTotalLocation1 = view.findViewById(R.id.texTotalLocation1);
-        texTotalLocation3 = view.findViewById(R.id.texTotalLocation3);
-        texTotalLocation2 = view.findViewById(R.id.texTotalLocation2);
+        texTemp = view.findViewById(R.id.texTempInfo);
+        texAir = view.findViewById(R.id.texAirInfo);
+        texHumidity = view.findViewById(R.id.texHumidityInfo);
         texAverageValue1 = view.findViewById(R.id.texAverageValue);
         texTemperature = view.findViewById(R.id.texTemperature);
         texNumberic = view.findViewById(R.id.texNumberic);
@@ -117,7 +118,7 @@ public class HomeFragment extends Fragment {
         updateThread.start();
     }
 
-    private void clickButtonAddDevice() {
+    private void clickButtonInfoDevice() {
         butAddDevice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,9 +150,9 @@ public class HomeFragment extends Fragment {
         for (Asset mAsset : listAsset) {
             if (mAsset.getName().equals(name)) {
                 texNumberic.setText(mAsset.getName());
-                texTotalLocation1.setText(mAsset.getAttributes().getWeatherData().getValue().getMain().getTemp() + "");
-                texTotalLocation2.setText(mAsset.getAttributes().getWeatherData().getValue().getMain().getHumidity() + "");
-                texTotalLocation3.setText(mAsset.getAttributes().getWeatherData().getValue().getWind().getSpeed() + "");
+                texTemp.setText(mAsset.getAttributes().getWeatherData().getValue().getMain().getTemp() + " °C");
+                texAir.setText(mAsset.getAttributes().getWeatherData().getValue().getWind().getSpeed() + " m/s");
+                texHumidity.setText(mAsset.getAttributes().getWeatherData().getValue().getMain().getHumidity() + " g.m³");
                 break;
             }
         }

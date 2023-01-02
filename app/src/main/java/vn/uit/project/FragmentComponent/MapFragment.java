@@ -119,10 +119,6 @@ public class MapFragment extends Fragment {
                         mapView.setMinZoomLevel((double) minZoom);
                         mapView.setScrollableAreaLimitDouble(new BoundingBox(mBounds[3], mBounds[2], mBounds[1], mBounds[0]));
 
-                        MapClick mapClick = new MapClick(mapView);
-                        MapEventsOverlay mapEventsOverlay = new MapEventsOverlay(ctx, mapClick);
-                        mapView.getOverlays().add(0, mapEventsOverlay);
-
                         for (Asset mAsset : listAsset) {
                             addMarker(mAsset);
                         }
@@ -139,7 +135,7 @@ public class MapFragment extends Fragment {
         mThread.start();
     }
 
-    private void setUpMarkerDetail(Marker mMarker, Asset asset, int click_count[]) {
+    private void setUpMarkerDetail(Marker mMarker, Asset asset) {
         mMarker.setTitle(asset.getName());
         mMarker.setSubDescription(asset.getAttributes().getWeatherData().getValue().getName());
         mMarker.setSnippet(String.format("[%s, %s]",
@@ -152,12 +148,21 @@ public class MapFragment extends Fragment {
         mMarker.setInfoWindow(new CustomInfo(mapView));
         mMarker.setInfoWindowAnchor(Marker.ANCHOR_CENTER, -0.1f);
 
+        MapClick mapClick = new MapClick(mapView, texTemp,
+                texAir, texHumidity, butViewMore);
+        MapEventsOverlay mapEventsOverlay = new MapEventsOverlay(ctx, mapClick);
+        mapView.getOverlays().add(0, mapEventsOverlay);
+
         // region Marker Click
         mMarker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker, MapView mapView) {
-                if (click_count[0] % 2 == 0) {
+                if (marker.isInfoWindowOpen()) {
                     marker.closeInfoWindow();
+                    texTemp.setText(R.string.temp);
+                    texAir.setText(R.string.air);
+                    texHumidity.setText(R.string.humidity);
+                    butViewMore.setVisibility(View.INVISIBLE);
                 } else {
                     MarkerInfoWindow.closeAllInfoWindowsOn(mapView);
                     marker.showInfoWindow();
@@ -168,15 +173,9 @@ public class MapFragment extends Fragment {
                     texHumidity.setText(String.format("%s g.m³", asset.getAttributes().getWeatherData()
                             .getValue().getMain().getHumidity()));
 
-                    if (marker.isInfoWindowOpen()) {
-                        butViewMore.setVisibility(View.VISIBLE);
-                        ViewMoreButtonClick(asset);
-                    } else {
-                        butViewMore.setVisibility(View.INVISIBLE);
-                    }
-
+                    butViewMore.setVisibility(View.VISIBLE);
+                    ViewMoreButtonClick(asset);
                 }
-                click_count[0]++;
 
                 return false;
             }
@@ -186,15 +185,14 @@ public class MapFragment extends Fragment {
     }
 
     private void addMarker(Asset mAsset) {
-        final int click_count[] = {1};
         if (isAssetLocationNull(mAsset) == false) {
             double[] coordinates = mAsset.getAttributes().getLocation().getValue().getCoordinates();
             Marker mMarker = new Marker(mapView);
             mMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
             mMarker.setIcon(getResources().getDrawable(R.drawable.marker, null));
             mMarker.setPosition(new GeoPoint(coordinates[1], coordinates[0]));
-            setUpMarkerDetail(mMarker, mAsset, click_count);
-            mapView.getOverlays().add(1, mMarker);
+            setUpMarkerDetail(mMarker, mAsset);
+            mapView.getOverlays().add(mMarker);
         }
     }
 
@@ -233,7 +231,6 @@ public class MapFragment extends Fragment {
                         .getWeatherData().getTimestamp()) + "");
 
                 startActivity(assetDetail);
-                Toast.makeText(ctx, "View more", Toast.LENGTH_SHORT).show();
             }
         });
     }

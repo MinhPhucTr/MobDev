@@ -29,10 +29,12 @@ public class SpinnerItemAdapter extends ArrayAdapter<SpinnerItem> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_selected, parent, false);
         TextView texItemSelected = (TextView) convertView.findViewById(R.id.texItemSelected);
+        ImageView imaSymbol = (ImageView) convertView.findViewById(R.id.imaSymbol);
         SpinnerItem spinnerItem = this.getItem(position);
         if(spinnerItem != null)
         {
             texItemSelected.setText(spinnerItem.getName().toString());
+            imaSymbol.setImageResource(spinnerItem.getImg());
         }
         return convertView;
     }

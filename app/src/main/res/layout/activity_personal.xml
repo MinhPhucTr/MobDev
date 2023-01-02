@@ -1,7 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:layout_width="match_parent"
+<RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:background="@drawable/top_background" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/butMenu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp20"
+        android:background="@drawable/menu_button" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/butSearch"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginEnd="@dimen/dp16"
+        android:background="@drawable/search_button" />
+
+    <TextView
+        android:id="@+id/texPersonal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32.5dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/personal"
+        android:textColor="@color/neutral6"
+        android:textSize="@dimen/sp20" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imaAvatar"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@id/texPersonal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/default_profile"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/neutral3"
+        android:translationZ="@dimen/dp8"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/butChangeAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change avatar"
+        android:textAllCaps="false"
+        android:background="@drawable/background_noset"
+        android:textSize="@dimen/sp16"
+        android:textStyle="normal"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/imaAvatar"
+        android:layout_above="@id/texName"
+        android:layout_marginBottom="0dp"
+        android:textColor="@color/primary"
+        android:gravity="bottom|center_horizontal"
+        android:textAlignment="gravity"
+        android:layout_marginHorizontal="@dimen/dp16"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/butChangeInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change infomation"
+        android:textAllCaps="false"
+        android:background="@drawable/background_noset"
+        android:textSize="@dimen/sp16"
+        android:textStyle="normal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="0dp"
+        android:textColor="@color/primary"
+        android:gravity="center_vertical|center_horizontal"
+        android:textAlignment="gravity"
+        android:layout_marginHorizontal="@dimen/dp16"
+        />
+
+    <TextView
+        android:layout_marginTop="@dimen/dp16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imaAvatar"
+        android:layout_marginHorizontal="32dp"
+        android:textStyle="bold"
+        android:text="@string/name"
+        android:textSize="@dimen/sp16"
+        android:textColor="@color/neutral2"
+        />
+
+    <TextView
+        android:layout_marginTop="@dimen/dp16"
+        android:id="@+id/texName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginHorizontal="32dp"
+        android:layout_below="@id/imaAvatar"
+        android:textSize="@dimen/sp16"
+        android:textColor="@color/neutral2"
+        android:text="Nguyen Van Vuong"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/texName"
+        android:layout_marginHorizontal="32dp"
+        android:textStyle="bold"
+        android:text="Username: "
+        android:textSize="@dimen/sp16"
+        android:textColor="@color/neutral2"
+        android:layout_marginTop="@dimen/dp8"
+        />
+
+    <TextView
+        android:layout_marginTop="@dimen/dp8"
+        android:id="@+id/texUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginHorizontal="32dp"
+        android:layout_below="@id/texName"
+        android:textSize="@dimen/sp16"
+        android:textColor="@color/neutral2"
+        android:text="user1"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/texUsername"
+        android:layout_marginHorizontal="32dp"
+        android:textStyle="bold"
+        android:text="@string/age"
+        android:textSize="@dimen/sp16"
+        android:textColor="@color/neutral2"
+        android:layout_marginTop="@dimen/dp8"
+        />
+
+    <TextView
+        android:id="@+id/texAge"
+        android:layout_marginTop="@dimen/dp8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginHorizontal="32dp"
+        android:layout_below="@id/texUsername"
+        android:textSize="@dimen/sp16"
+        android:textColor="@color/neutral2"
+        android:text="20"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/texAge"
+        android:layout_marginHorizontal="32dp"
+        android:textStyle="bold"
+        android:text="Password: "
+        android:textSize="@dimen/sp16"
+        android:textColor="@color/neutral2"
+        android:layout_marginTop="@dimen/dp8"
+        />
+
+    <TextView
+        android:id="@+id/texPassword"
+        android:layout_marginTop="@dimen/dp8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginHorizontal="32dp"
+        android:layout_below="@id/texAge"
+        android:textSize="@dimen/sp16"
+        android:textColor="@color/neutral2"
+        android:text="****"
+        />
 
 </RelativeLayout>

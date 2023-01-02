@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout
+<RelativeLayout
 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/neutral6">
+
+    <ImageView
         android:layout_width="match_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="match_parent"
-        android:background="@color/neutral6">
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_background" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/top_background" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/butMenu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp20"
+        android:background="@drawable/menu_button" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/butMenu"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="@dimen/dp16"
-            android:layout_marginTop="@dimen/dp20"
-            android:background="@drawable/menu_button" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/butSearch"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginEnd="@dimen/dp16"
+        android:background="@drawable/search_button" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/butSearch"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/dp20"
-            android:layout_marginEnd="@dimen/dp16"
-            android:background="@drawable/search_button" />
+    <TextView
+        android:id="@+id/texHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32.5dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/home"
+        android:textColor="@color/neutral6"
+        android:textSize="@dimen/sp20" />
 
-        <TextView
-            android:id="@+id/texHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="32.5dp"
-            android:fontFamily="@font/roboto"
-            android:text="@string/home"
-            android:textColor="@color/neutral6"
-            android:textSize="@dimen/sp20" />
-
-        <!--    Main board-->
+    <!--    Main board-->
     <RelativeLayout
         android:id="@+id/MainBoard"
         android:layout_width="match_parent"
@@ -56,7 +56,7 @@
         android:background="@drawable/main_board"
         android:elevation="1dp"
         android:padding="@dimen/dp16"
-        android:translationZ="16dp">
+        android:translationZ="@dimen/dp8">
 
         <TextView
             android:id="@+id/texTotalDevice"
@@ -65,9 +65,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:fontFamily="@font/roboto"
-            android:text="@string/device_added"
+            android:text="@string/asset_name"
             android:textColor="@color/neutral3"
-            android:textSize="@dimen/sp20" />
+            android:textSize="@dimen/sp16" />
 
         <TextView
             android:id="@+id/texNumberic"
@@ -84,7 +84,7 @@
             android:layout_height="56dp"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/dp2"
-            android:background="@drawable/add_button" />
+            android:background="@drawable/info_button" />
 
         <View
             android:id="@+id/Divider"
@@ -104,7 +104,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="@dimen/dp12"
             android:letterSpacing="0.01"
-            android:text="@string/weather_detail"
+            android:text="@string/asset_information"
             android:textColor="@color/neutral3"
             android:textSize="@dimen/sp16" />
 
@@ -119,36 +119,37 @@
             android:drawablePadding="@dimen/dp4"
             android:text="@string/temperature"
             android:textColor="@color/neutral2"
-            android:textSize="@dimen/sp14" />
-
-        <TextView
-            android:id="@+id/texAir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/texApplianceList"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="@dimen/dp8"
-            android:drawableStart="@drawable/water_drop_outlined"
-            android:drawablePadding="@dimen/dp4"
-            android:text="@string/humidity"
-            android:textColor="@color/neutral2"
-            android:textSize="@dimen/sp14" />
+            android:textSize="@dimen/sp16" />
 
         <TextView
             android:id="@+id/texHumidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/texApplianceList"
-            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
             android:layout_marginTop="@dimen/dp8"
             android:drawableStart="@drawable/air_outlined"
             android:drawablePadding="@dimen/dp4"
-            android:text="@string/air_speed"
+            android:text="@string/air"
             android:textColor="@color/neutral2"
-            android:textSize="@dimen/sp14" />
+            android:textSize="@dimen/sp16" />
 
         <TextView
-            android:id="@+id/texTotalLocation1"
+            android:id="@+id/texAir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texApplianceList"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dp8"
+            android:drawableStart="@drawable/water_drop_outlined"
+            android:drawablePadding="@dimen/dp4"
+            android:text="@string/humidity"
+            android:textColor="@color/neutral2"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/texTempInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/texTemp"
@@ -156,131 +157,121 @@
             android:paddingStart="@dimen/dp24"
 
             android:textColor="@color/neutral1"
-            android:textSize="@dimen/sp16" />
+            android:textSize="@dimen/sp14" />
 
         <TextView
-            android:id="@+id/texTotalLocation2"
+            android:id="@+id/texHumidityInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/texAir"
-            android:layout_alignBaseline="@id/texTotalLocation1"
+            android:layout_alignBaseline="@id/texTempInfo"
             android:layout_alignStart="@id/texAir"
             android:paddingStart="@dimen/dp24"
             android:textColor="@color/neutral1"
-            android:textSize="@dimen/sp16" />
+            android:textSize="@dimen/sp14" />
 
         <TextView
-            android:id="@+id/texTotalLocation3"
+            android:id="@+id/texAirInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/texAir"
             android:layout_alignStart="@id/texHumidity"
             android:paddingStart="@dimen/dp24"
             android:textColor="@color/neutral1"
-            android:textSize="@dimen/sp16" />
+            android:textSize="@dimen/sp14" />
 
     </RelativeLayout>
 
-        <!--    Weekly - Monthly - Annual-->
-        <TableLayout
-            android:id="@+id/RoutineBar"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:layout_below="@id/MainBoard"
-            android:layout_marginHorizontal="@dimen/dp16"
-            android:layout_marginVertical="@dimen/dp8"
-            android:background="@drawable/routine_bar"
-            android:elevation="@dimen/dp2"
-            android:paddingVertical="@dimen/dp8"
-            android:stretchColumns="*"
-            android:translationZ="@dimen/dp12">
+    <!--    Weekly - Monthly - Annual-->
+    <TableLayout
+        android:id="@+id/RoutineBar"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_below="@id/MainBoard"
+        android:layout_marginHorizontal="@dimen/dp16"
+        android:layout_marginVertical="@dimen/dp8"
+        android:background="@drawable/routine_bar"
+        android:elevation="@dimen/dp2"
+        android:paddingVertical="@dimen/dp8"
+        android:stretchColumns="*"
+        android:translationZ="@dimen/dp8">
 
-            <TableRow>
+        <TableRow>
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/butWeekly"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-20dp"
-                    android:background="@color/neutral6"
-                    android:drawableBottom="@drawable/circle_unactive"
-                    android:drawablePadding="-20dp"
-                    android:text="@string/weekly"
-                    android:textAllCaps="false"
-                    android:textColor="@color/neutral1" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/butMonthly"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="-20dp"
-                    android:background="@color/neutral6"
-                    android:drawableBottom="@drawable/circle_unactive"
-                    android:drawablePadding="-20dp"
-                    android:text="@string/monthly"
-                    android:textAllCaps="false"
-                    android:textColor="@color/neutral1" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/butAnnual"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="-20dp"
-                    android:background="@color/neutral6"
-                    android:drawableBottom="@drawable/circle_unactive"
-                    android:drawablePadding="-20dp"
-                    android:text="@string/annual"
-                    android:textAllCaps="false"
-                    android:textColor="@color/neutral1" />
-            </TableRow>
-
-        </TableLayout>
-
-        <RelativeLayout
-            android:id="@+id/layoutAnalys"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/RoutineBar"
-            android:layout_marginHorizontal="@dimen/dp16"
-            android:padding="@dimen/dp8">
-
-            <TextView
-                android:id="@+id/texAnalysis"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butWeekly"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp4"
-                android:layout_marginBottom="@dimen/dp12"
-                android:text="@string/analysis"
-                android:textColor="@color/neutral1"
-                android:textSize="@dimen/sp20" />
+                android:layout_marginTop="-20dp"
+                android:background="@color/neutral6"
+                android:drawableBottom="@drawable/circle_unactive"
+                android:drawablePadding="-20dp"
+                android:text="@string/weekly"
+                android:textAllCaps="false"
+                android:textColor="@color/neutral1" />
 
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="@dimen/dp20"
-                android:layout_marginTop="@dimen/dp5"
-                android:layout_toEndOf="@id/texAnalysis"
-                android:background="@drawable/custom_spinner" />
-        </RelativeLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butMonthly"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-20dp"
+                android:background="@color/neutral6"
+                android:drawableBottom="@drawable/circle_unactive"
+                android:drawablePadding="-20dp"
+                android:text="@string/monthly"
+                android:textAllCaps="false"
+                android:textColor="@color/neutral1" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butAnnual"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-20dp"
+                android:background="@color/neutral6"
+                android:drawableBottom="@drawable/circle_unactive"
+                android:drawablePadding="-20dp"
+                android:text="@string/annual"
+                android:textAllCaps="false"
+                android:textColor="@color/neutral1" />
+        </TableRow>
 
+    </TableLayout>
 
+    <TextView
+        android:id="@+id/texAnalysis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/RoutineBar"
+        android:layout_marginHorizontal="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp4"
+        android:layout_marginBottom="@dimen/dp12"
+        android:text="@string/analysis"
+        android:textColor="@color/neutral1"
+        android:textSize="@dimen/sp20" />
 
-        <!--   Analysis -->
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="140dp"
+        android:layout_height="28dp"
+        android:layout_below="@id/RoutineBar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp5"
+        android:background="@drawable/custom_spinner"
+        />
+    <!--   Analysis -->
     <LinearLayout
         android:id="@+id/ChartTemp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layoutAnalys"
+        android:layout_below="@+id/texAnalysis"
         android:layout_marginHorizontal="@dimen/dp16"
         android:layout_marginTop="@dimen/dp12"
         android:background="@drawable/main_board"
         android:elevation="@dimen/dp2"
         android:orientation="vertical"
         android:padding="@dimen/dp8"
-        android:translationZ="@dimen/dp12">
+        android:translationZ="@dimen/dp8">
 
         <TextView
             android:id="@+id/texTemperature"
@@ -335,4 +326,4 @@
                 android:textSize="@dimen/sp14" />
         </LinearLayout>
     </LinearLayout>
-    </RelativeLayout>
+</RelativeLayout>

@@ -18,6 +18,8 @@ public class DeviceInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_info);
 
+        getSupportActionBar().hide();
+
         Init();
 
         Intent intent = getIntent();
