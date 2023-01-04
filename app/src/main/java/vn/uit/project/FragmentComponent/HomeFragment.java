@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -198,6 +199,10 @@ public class HomeFragment extends Fragment {
         }
         texLastUpdated1.setText("From: " + startDate + "\nTo:      " + lastDate);
         texAverageValue1.setText(" " + averageValue + " " + label);
+        lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        lineDataSet.setDrawFilled(true);
+        lineDataSet.setFillColor(ContextCompat.getColor(getContext(),R.color.chart_primary));
+        lineDataSet.setColor(ContextCompat.getColor(getContext(),R.color.primary));
         lineDataSet.setValueTextSize(11);
         lineDataSet.setLineWidth(4);
         XAxis xAsis = chart.getXAxis();
@@ -212,6 +217,7 @@ public class HomeFragment extends Fragment {
         Description description = new Description();
         description.setText("");
         chart.setDescription(description);
+        chart.getLegend().setEnabled(false);
         LineData lineData = new LineData(lineDataSet);
         chart.setData(lineData);
         chart.invalidate();

@@ -13,5 +13,6 @@
     <color name="neutral1">#242D33</color>
     <color name="red">#FF0000</color>
     <color name="primary">#1BBBD1</color>
+    <color name="chart_primary">#CCFFFF</color>
 
 </resources>
