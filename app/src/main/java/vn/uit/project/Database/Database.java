@@ -92,7 +92,7 @@ public class Database extends SQLiteOpenHelper {
             cursor.moveToFirst();
         }
         Client client = new Client(cursor.getString(1), cursor.getString(2)
-                ,cursor.getString(4), cursor.getInt(5));
+                ,cursor.getString(5), cursor.getInt(4));
         return client;
     }
 

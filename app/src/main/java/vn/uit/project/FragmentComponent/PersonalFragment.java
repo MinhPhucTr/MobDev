@@ -80,8 +80,8 @@ public class PersonalFragment extends Fragment {
                             {
                                 Log.d("RESULT", "TRUE");
                                 database.changeInformation(new Client(bundle.getString("Client"), newPass, name, Integer.valueOf(age)));
-                                Log.d("NAME", name);
-                                Log.d("AGE", age);
+                                Log.d("NAME_DB", name);
+                                Log.d("AGE_DB", age);
                                 dialog.dismiss();
                                 SetUp();
                                 Toast.makeText(getContext(), "Update Account Successfully!", Toast.LENGTH_SHORT).show();
@@ -121,13 +121,14 @@ public class PersonalFragment extends Fragment {
     private void SetUp() {
         Database database = new Database(getContext());
         Bundle mBundle = this.getArguments();
-        Client client = database.getClient(mBundle.getString("Client"));
+        String usn = mBundle.getString("Client");
+        Client client = database.getClient(usn);
         if (client.getName() == null) {
             tvName.setText("No set");
             tvName.setTypeface(null, Typeface.ITALIC);
             tvName.setTextColor(getResources().getColor(R.color.neutral3));
         } else {
-            tvName.setText(client.getAge() + "");
+            tvName.setText(client.getName() + "");
         }
 
         if (client.getAge() == 0) {

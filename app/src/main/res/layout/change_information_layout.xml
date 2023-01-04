@@ -7,6 +7,7 @@
     android:background="@drawable/background">
 
     <TextView
+        android:layout_marginTop="@dimen/dp12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/change"
@@ -84,7 +85,7 @@
         android:id="@+id/butUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp16"
+        android:layout_marginHorizontal="@dimen/dp12"
         android:background="@drawable/button"
         android:paddingHorizontal="@dimen/dp12"
         android:layout_marginTop="@dimen/dp16"
@@ -98,10 +99,10 @@
         android:id="@+id/butBack2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp16"
+        android:layout_marginHorizontal="@dimen/dp12"
         android:background="@drawable/danger_button"
         android:paddingHorizontal="@dimen/dp12"
-        android:layout_marginTop="@dimen/dp24"
+        android:layout_marginTop="@dimen/dp12"
         android:text="@string/back"
         android:textAllCaps="false"
         android:textColor="@color/neutral6"
